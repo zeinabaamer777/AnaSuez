@@ -1,0 +1,9 @@
+<div class="form-group">
+    <select  
+        id="users" class="form-control" (change)="getUser($event)">
+        <option hidden [value]="" selected>Select Target Customer </option>
+        <option [ngValue]="k.Id" *ngFor="let k of userModel" >
+            {{k.Username}}
+        </option>
+    </select>
+</div>

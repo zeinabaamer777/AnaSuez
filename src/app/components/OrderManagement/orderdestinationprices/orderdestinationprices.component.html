@@ -1,0 +1,49 @@
+<div class="row">
+  <div  class="col-md-3">
+
+  </div>
+    <div class="col-md-6">
+    
+        <form [formGroup]="destinationPriceForm"
+         (ngSubmit)="Add(destinationPriceForm)">
+            <input formControlName="Id" type="hidden" class="form-control" id="req_Id">
+            <!-- <input formControlName="IsActive" type="hidden" class="form-control" id="IsActive"> -->
+    
+            <div class="form-group">
+                <label>{{'product.name'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <get-product-lookup  (getProductID)="GetProductValue($event)">
+
+                        </get-product-lookup>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{'order.DestinationTarget'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <orderdestination 
+                         (selectedValueId)="GetDestinationValue($event)"></orderdestination>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{'product.price'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input formControlName="PricePerTon" type="text"
+                         class="form-control" id="PricePerTon" [(ngModel)]="price">
+                    </div>
+                   
+                </div>
+            </div>
+            <button type="submit"
+            class="btn btn-primary btn-block">{{'general.save'|translate}}</button>
+                      
+        </form>
+    </div>
+    <div  class="col-md-3">
+
+    </div>
+</div>

@@ -1,0 +1,182 @@
+<div class="row">
+  
+    <div class="col-md-6">
+    
+        <form [formGroup]="productForm" (ngSubmit)="saveProduct(productForm)">
+            <input formControlName="Id" type="hidden" class="form-control" id="req_Id">
+            <input formControlName="IsActive" type="hidden" class="form-control" id="IsActive">
+    
+            <div class="form-group">
+                <label>{{'product.name'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input formControlName="ProductName" type="text"
+                         class="form-control" id="ProductName">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>{{'product.namear'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input formControlName="ProductNameAR" type="text" class="form-control" id="ProductNameAR">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>{{'product.label'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input formControlName="ProductLabel" type="text" class="form-control" id="ProductLabel">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>{{'product.labelar'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input formControlName="ProductLabelAR" type="text" class="form-control" id="ProductLabelAR">
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="form-group">
+                <label>{{'product.price'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input formControlName="Price" type="text" class="form-control" id="Price">
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="form-group">
+                <label for="comp_code">{{'cart.plant'|translate}} : </label>
+                <select *ngIf="lang.currentLanguage==='ar-EG'" 
+                formControlName="FK_PlantId" id="plant" class="form-control">
+                    <option hidden [value]="" selected>Select Plant </option>
+                    <option [ngValue]="k.Id" *ngFor="let k of plants">
+                        {{k.PlantNameAR}}
+                    </option>
+                </select>
+    
+                <select *ngIf="lang.currentLanguage==='en-US'" formControlName="FK_PlantId" id="plant" class="form-control">
+                    <option hidden [value]="" selected>Select Plant </option>
+                    <option [ngValue]="k.Id" *ngFor="let k of plants">
+                        {{k.PlantName}}
+                    </option>
+                </select>
+            </div>
+    
+    
+            <div class="form-group">
+                <label for="comp_code">{{'product.producttype'|translate}} : </label>
+                <select *ngIf="lang.currentLanguage==='ar-EG'" formControlName="FK_ProductType" id="product_type" class="form-control">
+                    <option hidden [value]="" selected>Select product type </option>
+                    <option [ngValue]="k.Id" *ngFor="let k of ptypes">
+                        {{k.TypeNameAR}}
+                    </option>
+                </select>
+    
+                <select *ngIf="lang.currentLanguage==='en-US'" formControlName="FK_ProductType" id="product_type" class="form-control">
+                    <option hidden [value]="" selected>Select product type </option>
+                    <option [ngValue]="k.Id" *ngFor="let k of ptypes">
+                        {{k.TypeName}}
+                    </option>
+                </select>
+            </div>
+    
+    
+    
+           
+    
+            
+            <div class="form-group">
+                <!-- <label for="req_desc">Attachements</label> -->
+                <input accept="image/*" type="file" style="display:none;" 
+                (change)="uploadDocs($event)" name="Docs" #Attimg />
+                <button type="button" class="btn btn-success" 
+                (click)="Attimg.click()">{{'general.imgupload'|translate}}</button>
+              </div>
+    
+    
+    
+    
+    
+    
+            <div class="form-group">
+                <label>{{'product.footer'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <tinymce formControlName="ProductFooter" type="text" class="form-control" id="ProductFooter">
+                        </tinymce>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>{{'product.footerar'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <tinymce formControlName="ProductFooterAR" type="text" class="form-control" id="ProductFooterAR">
+                        </tinymce>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>{{'product.shortdesc'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <tinymce formControlName="ShortDescription" type="text" class="form-control" id="ShortDescription">
+                        </tinymce>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>{{'product.shortdescar'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <tinymce formControlName="ShortDescriptionAR" type="text" class="form-control"
+                            id="ShortDescriptionAR"></tinymce>
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="form-group">
+                <label>{{'product.longdesc'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <tinymce formControlName="LongDescription" type="text" class="form-control" id="LongDescription">
+                        </tinymce>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>{{'product.longdescar'|translate}} : </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <tinymce formControlName="LongDescriptionAR" type="text" class="form-control"
+                            id="LongDescriptionAR"></tinymce>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary">{{'general.save'|translate}}</button>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+        <div *ngIf="productForm.controls['Image'].value">
+            <label>{{'general.currentImg'|translate}}</label>
+            <img src="{{img_url}}/{{productForm.controls['Image'].value}}" class="imgSze">
+        </div>
+       
+    </div>
+</div>

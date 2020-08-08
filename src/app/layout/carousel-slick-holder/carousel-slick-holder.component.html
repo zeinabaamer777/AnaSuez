@@ -1,0 +1,20 @@
+<div class="container">
+    <ngx-slick-carousel class="carousel" 
+        #slickModal="slick-carousel" 
+        [config]="slideConfig" 
+        (init)="slickInit($event)"
+        (breakpoint)="breakpoint($event)"
+        (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+            <div ngxSlickItem *ngFor="let slideritem of sliderItems" class="slide">
+                <div class="card shadow-sm p-3 mb-5 bg-white">
+                    <img class="card-img-top"  [src]="slideritem.src" [alt]="slideritem.alt" >
+                    <div class="card-title">
+                        <h6 class="text-center">
+                        {{ slideritem.title }}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </ngx-slick-carousel>
+</div>

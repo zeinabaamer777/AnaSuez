@@ -1,0 +1,12 @@
+<div class="form-group">
+    <select  
+        id="deliverWay"
+        (change)="getdeliverWay($event)"
+        class="form-control"
+        [(ngModel)]='nrSelect' >
+        <option hidden [value]="" selected>{{'general.DeliverWay'|translate}} </option>
+        <option [ngValue]="k.Id" *ngFor="let k of commonModel">
+            {{k.Text}}
+        </option>
+    </select>
+</div>

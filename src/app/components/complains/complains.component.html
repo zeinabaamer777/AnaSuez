@@ -1,0 +1,98 @@
+<div class="container" style="padding-top:5%;padding-bottom:5%">
+
+    <div class="row">
+        
+        <main class="col-sm-12">
+            <div>
+                <div class="grid">
+                    <div class="grid-body">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-8 col-12 mx-auto form-wrapper">
+                                <form [formGroup]="ComplainForm" 
+                                 (ngSubmit)="Add()">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                             </div>
+                                        
+                                            <div class="col-md-8">
+                                                <input type="radio" 
+                                                name="Type"  
+                                                formControlName="Type"
+                                                id="Inquiry" 
+                                                value="1"
+                                                [checked]="true"
+                                                > {{'general.Inquiry'|translate}}
+                                                <input type="radio" 
+                                                 name="Type" 
+                                                 formControlName="Type"
+                                                 id="Complain"
+                                                value="2"
+
+                                                > {{'general.Complain'|translate}}
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="Title">{{'Complain.Title'|translate}}</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input formControlName="Title"
+                                                    placeholder="{{'Complain.Title'|translate}}" 
+                                                    type="text"
+                                                    class="form-control" id="Title">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="Description">{{'Complain.Description'|translate}}</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <textarea 
+                                                    formControlName="Description"
+                                                    placeholder="{{'Complain.Description'|translate}}" 
+                                                    type="text"
+                                                    rows="4" cols="50"
+                                                    class="form-control" id="Description">
+                                                </textarea>
+                                               
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="Description">{{'general.Attach'|translate}}</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input accept="image/*" type="file"  
+                                                (change)="uploadDocs($event)" name="Docs" #Attimg />
+                                                
+                                                <!-- <button type="button" class="btn btn-success" 
+                                                (click)="Attimg.click()">{{'general.imgupload'|translate}}</button> -->
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                            <button type="submit"
+                                             class="btn btn-primary btn-block"
+                                             
+                                             >
+                                            {{'general.Submit'|translate}}</button>
+
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

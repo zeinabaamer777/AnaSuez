@@ -1,0 +1,84 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" 
+      id="ManageMyOrderFromOneCustomer-tab" data-toggle="tab" 
+      href="#ManageMyOrderFromOneCustomer" role="tab"
+       aria-controls="ManageMyOrderFromOneCustomer" 
+      aria-selected="true" active>{{'Customer.ManageMyOrderFromOneCustomer' |translate}} </a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" id="UpdateMasterData-tab" data-toggle="tab" 
+      href="#UpdateMasterData" role="tab" aria-controls="UpdateMasterData" 
+      aria-selected="false">{{'Customer.UpdateMasterData' |translate}}</a>
+    </li> 
+    
+     <li class="nav-item" >
+      <a class="nav-link" id="Coupons-tab" data-toggle="tab" 
+            href="#Coupons" role="tab" aria-controls="Coupons" 
+            aria-selected="false"> {{ 'reports.coupon' | translate }}</a>
+    </li> 
+    <li class="nav-item" >
+        <a class="nav-link" id="Volums-tab" data-toggle="tab" 
+            href="#Volums" role="tab" aria-controls="Volums" 
+            aria-selected="false">{{ 'reports.volumes' | translate }}</a>
+      </li> 
+      <li class="nav-item" hidden>
+        <a class="nav-link" id="Volums-tab" data-toggle="tab" 
+            href="#Debosite" role="tab" aria-controls="Debosite" 
+            aria-selected="false">{{'Customer.Debosite' |translate}}</a>
+      </li> 
+      <li class="nav-item" >
+        <a class="nav-link" id="statistics-tab" data-toggle="tab" 
+            href="#statistics" role="tab" aria-controls="Debosite" 
+            aria-selected="false">  {{ 'reports.statistics' | translate }}</a>
+      </li> 
+      <li class="nav-item" >
+        <a class="nav-link" id="MyBalance-tab" data-toggle="tab" 
+            href="#MyBalance" role="tab" aria-controls="MyBalance" 
+            aria-selected="false">  {{ 'Customer.MyBalance' | translate }}</a>
+      </li> 
+      
+</ul>
+
+<div class="tab-content" id="myTabContent">
+    <div  class="tab-pane fade show active"  id="ManageMyOrderFromOneCustomer" role="tabpanel" 
+    aria-labelledby="ManageMyOrderFromOneCustomer-tab" active>
+    <management-regular-tasks-for-one-customer></management-regular-tasks-for-one-customer>
+  
+     
+    </div> 
+
+     <div class="tab-pane fade" id="UpdateMasterData" role="tabpanel" 
+          aria-labelledby="UpdateMasterData-tab">
+       <app-update-sap-customer></app-update-sap-customer>
+    </div> 
+    
+     
+    <div class="tab-pane fade" id="Coupons" role="tabpanel" 
+    aria-labelledby="Coupons-tab" >
+      <app-coupons></app-coupons>
+
+    </div> 
+    <div class="tab-pane fade" id="Volums" role="tabpanel" 
+    aria-labelledby="Volums-tab" >
+       <app-volumes></app-volumes>
+
+    </div> 
+    <div class="tab-pane fade" id="Debosite" role="tabpanel" hidden
+    aria-labelledby="Debosite-tab" >
+    <app-deposite-rcusomer></app-deposite-rcusomer>
+       
+    </div>
+    <div class="tab-pane fade" id="statistics" role="tabpanel" 
+    aria-labelledby="statistics-tab" >
+      <app-statistics></app-statistics>
+
+       
+    </div>
+    <div class="tab-pane fade" id="MyBalance" role="tabpanel" 
+    aria-labelledby="MyBalance-tab" >
+      <customerbalance></customerbalance>
+
+       
+    </div>
+    </div>

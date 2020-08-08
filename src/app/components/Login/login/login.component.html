@@ -1,0 +1,53 @@
+<div class="container" style="padding-top:5%;padding-bottom:5%">
+
+    <div class="row">
+        <main class="col-sm-3">
+        </main>
+        <main class="col-sm-6">
+
+
+            <div>
+                <div class="grid">
+                    <div class="grid-body">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-8 col-12 mx-auto form-wrapper">
+                                <form  (ngSubmit)="login()">
+                                    <div class="form-group input-rounded">
+                                        <input type="text" name="usr"  
+                                        [(ngModel)]="user_cred.Username"
+                                         class="form-control" 
+                                         placeholder="{{'login.username'|translate}}" />
+                                    </div>
+                                    <div class="form-group input-rounded">
+                                        <input name="pass"  
+                                        [(ngModel)]="user_cred.Password"
+                                         type="password" class="form-control" 
+                                         placeholder="{{'login.password'|translate}}" />
+                                    </div>
+                                    <div class="form-inline">
+                                        <div class="checkbox">
+                                            <label>
+                                              
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block"> {{'login.login'|translate}} </button>
+                                </form>
+                                <div class="signup-link">
+                                    <p> {{'login.noaccyet'|translate}}</p>
+                                    <a [routerLink]="['/register']"> {{'login.sign-up'|translate}}</a>
+                                    | <a [routerLink]="['/reset-password']"> {{'login.resetPassword'|translate}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main> <!-- col.// -->
+        <main class="col-md-4">
+        </main>
+
+    </div>
+
+</div>

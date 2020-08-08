@@ -1,0 +1,5 @@
+
+  #header.header-scrolled #navbar-content,
+  #header.header-scrolled  nav.navbar{
+    height: 90px;
+  }

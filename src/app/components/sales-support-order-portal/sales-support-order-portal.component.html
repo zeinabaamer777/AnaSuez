@@ -1,0 +1,84 @@
+<div class="row">
+
+<table class="table table-stripe;" hidden>
+    <thead class="thead-light">
+      <tr>
+        <th scope="col"># </th>
+        <th scope="col">{{'order.userName'| translate}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">  
+            <input  [(ngModel)]="OrderId" >      
+        </th>
+        <td>Client Name Value</td>
+      </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="container" style="padding-top:5%;padding-bottom:5%">
+
+    <div class="row">
+        <main class="col-sm-3">
+        </main>
+        <main class="col-sm-6">
+            <div>
+                <div class="grid">
+                    <div class="grid-body">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {{'general.DeliverWay' |translate}}
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- Default inline 1-->
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" 
+                                        id="defaultInline1" name="ordertype" value="Trader" [(ngModel)]="ordertype"
+                                         (change)="toggleShow(true)">
+                                        <label class="custom-control-label" 
+                                        for="defaultInline1">{{'general.Trader' |translate}}</label>
+                                    </div>
+                                    
+                                    <!-- Default inline 2-->
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" 
+                                        id="defaultInline2" name="ordertype" value="Plant" [(ngModel)]="ordertype"
+                                        (change)="toggleShow(false) "
+                                        >
+                                        <label class="custom-control-label" 
+                                        for="defaultInline2">{{'general.Plant' |translate}}</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
+                        <div class="form-group" *ngIf="isShown">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <order-target-treder [orderId]="orderId">
+
+                                    </order-target-treder>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="!isShown">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button (click)="SaveOrder()"
+                                    class="btn btn-primary btn-block">{{'general.save'|translate}}
+                                </button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

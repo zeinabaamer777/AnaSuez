@@ -1,0 +1,40 @@
+<form [formGroup]="AddFrom" 
+(ngSubmit)="Add(AddFrom)">
+    <div class="form-group row">
+        <label for="City" class="col-sm-5 col-form-label">{{'order.DestinationTarget' |translate}}
+        </label>
+        <div class="col-sm-7">
+            <city-lookup (cityId)="getCity($event)" [orderId]="orderId">
+            </city-lookup>
+        </div>
+    </div>
+
+    
+    <div class="form-group row">
+        <label for="TargetCustomer" class="col-sm-5 col-form-label">
+            {{'general.Trader' |translate}}
+            
+             </label>
+        <!-- <ng-template #users>
+
+        </ng-template> -->
+        <div class="col-sm-7">
+            <userbycitylookup (User)="getUser($event)"
+             [cityId]="cityId" #userbycitylookup>
+
+            </userbycitylookup>
+        </div>
+    </div>
+    <button type="submit"
+            class="btn btn-primary btn-block"  >
+        {{'order.Confirm'|translate}}</button>
+</form>
+
+<!-- <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+    </div>
+  </div> -->
+
+

@@ -1,0 +1,13 @@
+<!-- <link rel="stylesheet" [href]='sanitizer.bypassSecurityTrustResourceUrl(cssUrl)'> -->
+<div class="pad">
+    <a style="cursor: pointer" (click)="loadStyle('en-US')" 
+    *ngIf="lang.currentLanguage==='ar-EG'" 
+     style="color: white;">English</a> 
+    <a style="cursor: pointer" (click)="loadStyle('ar-EG')"
+     *ngIf="lang.currentLanguage==='en-US'" 
+    style="color: white;">اللغة العربية</a>
+</div>
+
+<!-- <div *ngIf="current_culture!=''">
+    <router-outlet></router-outlet>
+</div> -->

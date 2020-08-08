@@ -1,0 +1,361 @@
+<!-- https://www.w3schools.com/tags/tag_textarea.asp -->
+
+
+  <!-- ======= Header ======= -->
+   <!-- <div class="container">  -->
+<!-- <div [ngStyle]="{background: 'url(assets/images/1-h.jpg)'}" 
+     [ngStyle]="width: 100%;height: 100;">  -->
+     <!-- <div [style.background-image]="url(assets/images/1-h.jpg)">  -->
+
+  <header id="header" class="fixed-top header-transparent"
+   style="background-color: rgba(45,186,30, .6);">
+        <div class="container" >
+
+            <div class="row justify-content-center" >
+                <div class="col-xl-11 d-flex align-items-center">
+                <!-- <h1 class="logo mr-auto"><a href="index.html">Suez Cement</a></h1> -->
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <a href="#" class="logo mr-auto"></a>
+                
+                    <nav class="navbar roundEdge navbar-top navbar-expand-lg navbar-dark bg-secondary">
+                        
+
+                        <div class="container">
+                            <button class="navbar-toggler" 
+                            type="button" data-toggle="collapse" data-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                
+                                <ul class="navbar-nav">
+                                     
+                                    <li class="nav-item active" >
+                                        <a class="nav-link" [routerLink]="['']"> 
+                                            <i class="fa fa-home"></i> {{ 'general.products' | translate }}</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" [routerLink]="['/cart']"
+                                        [hidden]="lUserRoleName=='DirectSalesSupport' 
+                                        || lUserRoleName=='Sales' 
+                                        || lUserRoleName=='CustomerService'">
+                                            <i class="fa fa-shopping-cart"></i>  {{ 'general.Cart' | translate }} <span *ngIf="cart_item_cont&&cart_item_cont>0" class="badge badge-pill badge-danger">{{cart_item_cont}}</span></a>
+                                    </li>
+                
+                                    <li class="nav-item active" 
+                                    [hidden]="lUserRoleName=='DirectSalesSupport' 
+                                    || lUserRoleName=='CustomerService' || lUserRoleName=='Sales'">
+                                        <a class="nav-link" [routerLink]="['/my-orders']"> 
+                                        
+                                            <i class="fas fa-shopping-bag"></i>
+                                            {{ 'userMenu.MyOrders' | translate }}</a>
+                                    </li>
+                                    <li class="nav-item active" hidden >
+                                        <a class="nav-link" [routerLink]="['/coupons']"> 
+                                            <i class="fa fa-ticket-alt"></i>  {{ 'reports.coupon' | translate }}</a>
+                                    </li>
+                                    <li class="nav-item active" hidden>
+                                        <a class="nav-link" [routerLink]="['/volumes']"> 
+                                            <i class="fa fa-weight"></i>  {{ 'reports.volumes' | translate }}</a>
+                                    </li> 
+                
+                                    <!-- <li class="nav-item active" [hidden]="UserType=='RegularClient'">
+                                        <a class="nav-link" [routerLink]="['/statistics']"> 
+                                            <i class="fa fa-chart-pie"></i>  {{ 'reports.statistics' | translate }}</a>
+                                    </li> -->
+                                    <!-- <li class="nav-item active">
+                                        <a class="nav-link" [routerLink]="['/sales-support']">
+                                            <i class="fa fa-sign-out-alt"></i>
+                                            {{ 'userMenu.Logout' | translate | translate }}</a>
+                                    </li> -->
+                
+                
+                
+                                    <li class="nav-item active" hidden> 
+                                        <a class="nav-link" [routerLink]="['/ManagmentRegularTasks']">
+                                            <i class="fas fa-tasks">
+                
+                                            </i> {{'userMenu.Management' |translate}}</a>
+                                    </li>
+                                    <li class="nav-item active"  [hidden]="UserType!='RegularClient'"> 
+                                        <a class="nav-link" [routerLink]="['/ManagementRegularTasksForOneCustomer']">
+                                            <i class="fas fa-tasks">
+                
+                                            </i> {{'userMenu.ManagementOneCustomerByTrader' |translate}}</a>
+                                    </li>
+                                    
+                                    <li class="nav-item active" [hidden]="lUserRoleName!='CustomerService'"> 
+                                        <a class="nav-link" [routerLink]="['/CustomerService']">
+                                            <i class="fas fa-tasks">
+                
+                                            </i> {{'general.CustomerService' |translate}}</a>
+                                    </li>
+                                    <li class="nav-item active" [hidden]="lUserRoleName!='DirectSalesSupport'">
+                                        <a class="nav-link" [routerLink]="['/sales-support']"> 
+                                            <i class="fas fa-tasks">
+                
+                                            </i>  {{'general.DirectSalesSupport' |translate}}</a>
+                                    </li>
+                                    <li class="nav-item active"  [hidden]="lUserRoleName!='Sales'"> 
+                                        <a class="nav-link" [routerLink]="['/ordersplantpaied']">
+                                            <i class="fas fa-tasks">
+                
+                                            </i> {{'general.SalesSupport' |translate}}</a>
+                                    </li>
+                                    
+                                    <li class="nav-item active" 
+                                    [hidden]="lUserRoleName != 'DirectSalesSupport' 
+                                            ">
+                                        <a class="nav-link" 
+                                        [routerLink]="['/products']"> 
+                                        <i class="fal fa-store-alt"></i> {{'general.Manageproducts' |translate}}</a>
+                                    </li>
+                                    <li class="nav-item active" 
+                                    [hidden]="lUserRoleName != 'Sales' 
+                                            ">
+                                    <a class="nav-link" 
+                                    [routerLink]="['/products']"> 
+                                    <i class="fas fa-shipping-fast"></i> {{'general.Manageproducts' |translate}}</a>
+                                </li>
+                                    
+                                    <li class="nav-item active" hidden>
+                                        <a class="nav-link" 
+                                        [routerLink]="['/DepositeRCusomer']"> 
+                                        <i class="fas fa-shipping-fast">></i> {{'Customer.Debosite' |translate}}</a>
+                                    </li>
+                                    
+                                    
+                                    <li class="nav-item active"  >
+                                        <a class="nav-link" 
+                                        [routerLink]="['/AddComplain']"> 
+                                        <i class="far fa-file-alt"></i> {{'Complain.AddComplain' |translate}}</a>
+                                    </li>
+                                    <li class="nav-item active" hidden >
+                                        <a class="nav-link" 
+                                        [routerLink]="['/UpdateMasterData']"> 
+                                        <i class="far fa-file-alt"></i> {{'Customer.UpdateMasterData' |translate}}</a>
+                                    </li>
+                
+                                    <li class="nav-item active" hidden >
+                                        <a class="nav-link" 
+                                        [routerLink]="['/TransportationManagement']"> 
+                                        <i class="fas fa-tasks"></i> {{'transportation.Management' |translate}}</a>
+                                    </li>
+                                    
+                                    <li class="nav-item active" *ngIf="lUserRoleName!=null">
+                                        <a class="nav-link" (click)="logout()"> 
+                                            <i class="fas fa-sign-in-alt"></i>
+                
+                                            {{ 'userMenu.Logout' | translate | translate }}</a>
+                                    </li>
+                                    <li class="nav-item active" *ngIf="lUserRoleName==null">
+                                        <a class="nav-link" (click)="logout()"> 
+                                            <i class="fas fa-sign-out-alt"></i>
+                
+                                            {{ 'userMenu.Login' | translate | translate }}</a>
+                                    </li>
+                                    <li class="nav-item active" *ngIf="lUserRoleName!=null">
+                                        <a class="nav-link"  > 
+                                            
+                                            {{ 'general.Welcome' | translate | translate }}
+                                                {{UserName}}
+                                            </a>
+                                    </li>
+                                    <li class="nav-item active" >
+                                        <a class="nav-link"  > 
+                                            
+                                            <language></language>
+                                            </a>
+                                    </li>
+                                    <!-- <li class="nav-item active">
+                                        <language></language>
+                                    </li>  -->
+                                    <!-- <li class="nav-item active">
+                                        <a class="nav-link" [routerLink]="['']"> <i class="fa fa-id-card"></i>  {{ 'userMenu.profile' | translate }}</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" [routerLink]="['']"> <i class="fa fa-sign-out-alt"></i>
+                                            {{ 'userMenu.Logout' | translate }}</a>
+                                    </li> -->
+                                
+                                    <!-- <li class="nav-item dropdown active">
+                                        <a class="nav-link" href="#" data-toggle="dropdown"> <span><i class="fa fa-user"></i> Profile</span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#"> <span><i class="fa fa-id-card span-padd"></i></span>
+                                                    {{ 'userMenu.profile' | translate }}</a></li>
+                                        
+                                        </ul>
+                                    </li> -->
+                                
+                                    <!-- <span class="badge">3</span> -->
+                                    <!-- <li class="nav-item dropdown">
+                                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Dropdown  </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#"> Menu item 1</a></li>
+                                            <li><a class="dropdown-item" href="#"> Menu item 2 </a></li>
+                                        </ul>
+                                    </li> -->
+                                    <!--<li class="nav-item"><a class="nav-link" href="html-components.html"> Documentation </a></li>
+                
+                            <li class="nav-item"><a class="nav-link" href="http://bootstrap-ecommerce.com"> Download <i class="fa fa-download"></i></a></li>-->
+                                </ul>
+                            </div>
+                        </div> <!-- container //  -->
+                
+                    </nav>
+                
+                
+                
+                
+                
+                    
+                </div>
+            
+            </div>
+
+        </div>
+        <div class="container-fluid" hidden >
+
+        <div class="row justify-content-center"  style="width: 50%;height:50%;">
+            <div class="col-xl-11 d-flex align-items-center">
+                <!-- <h1 class="logo mr-auto"><a href="index.html">Suez Cement</a></h1> -->
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <a href="#" class="logo ;nav-menu d-none d-lg-block" >
+                    <img src="assets/img/SuezCement.png" alt=""></a><br>
+                
+            
+            </div>
+        </div>
+
+        </div>
+  </header>
+     
+<!-- End Header -->
+
+  <!-- ======= Intro Section ======= -->
+  <!-- <section id="intro">
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active" style="background-image: url(assets/images/2-h.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Order Cement Online ...</h2>
+                <p class="animate__animated animate__fadeInUp"></p>
+                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Order Now </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+          <!-- <div class="carousel-item" style="background-image: url(assets/img/intro-carousel/2.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Order Cement Online ...</h2>
+
+                <p class="animate__animated animate__fadeInUp">Best For You.</p>
+                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(assets/img/intro-carousel/3.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Order Cement Online ...</h2>
+
+                <p class="animate__animated animate__fadeInUp">Best For You.</p>
+                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(assets/img/intro-carousel/4.jpg)">
+            <div class="carousel-container">
+                <div class="carousel-container">
+                    <div class="container">
+                      <h2 class="animate__animated animate__fadeInDown">Order Cement Online ...</h2>
+      
+                      <p class="animate__animated animate__fadeInUp">Best For You.</p>
+                      <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Order Now</a>
+                    </div>
+                  </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(assets/img/intro-carousel/5.jpg)">
+            <div class="carousel-container">
+                <div class="container">
+                  <h2 class="animate__animated animate__fadeInDown">Order Cement Online ...</h2>
+  
+                  <p class="animate__animated animate__fadeInUp">Best For You.</p>
+                  <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Order Now</a>
+                </div>
+              </div>
+          </div>
+
+        </div>
+ -->
+        <!-- <a class="carousel-control-prev"
+         href="#introCarousel" role="button" data-slide="prev"> -->
+          <!-- <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span> -->
+          <!-- <span class="sr-only">Previous</span>
+        </a> -->
+
+        <!-- <a class="carousel-control-next" 
+        href="#introCarousel" role="button" data-slide="next"> -->
+          <!-- <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span> -->
+          <!-- <span class="sr-only">Next</span>
+        </a> -->
+
+      <!-- </div> -->
+      
+    <!-- </div> -->
+    
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!--</section> End Intro Section -->
+  <main id="main">
+
+    <!-- ======= Featured Services Section Section ======= -->
+    <section id="featured-services">
+      <div class="container">
+        <div class="row" >
+ 
+
+          <div  style="width: 100%;">
+            <productstab></productstab>    
+          </div>
+
+          
+        </div>
+      </div>
+    </section><!-- End Featured Services Section -->
+  </main>
+<!-- </div> -->

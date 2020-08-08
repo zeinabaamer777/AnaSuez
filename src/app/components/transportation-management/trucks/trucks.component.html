@@ -1,0 +1,143 @@
+<br>
+<div class="container">
+  <!-- <div class="row">
+    <div class="col-xs-2 col-md-2"><button 
+      type="submit" 
+      class="btn btn-primary btn-block" (click)="open(content)"> {{'button.AddNew'|translate}} 
+    </button></div>
+  </div> -->
+  <div class="row">
+    <div class="col-xs-2 col-md-2"><button 
+      type="submit" 
+      class="btn btn-primary btn-block" 
+      (click)="open(content)"> {{'button.AddNew'|translate}} 
+    </button></div>
+  </div>
+  <div>
+    <br>
+    <div class="row">
+
+      <div class="col-md-12">
+          <table class="table table-striped">
+              <thead>
+                <tr class="tableHeader">
+                  <th hidden>DummyKey</th>
+                  <th hidden>TransporterID</th>
+                  <th hidden>TruckSAPID</th>
+                  <th >{{'Truck.TruckLicense'|translate}}</th>
+                  <th>{{'Truck.TrailerLicense'|translate}}</th>
+                  <th hidden>TrailerValid</th>
+                </tr>
+              </thead>
+   <tbody>
+   <tr *ngFor="let group of data | paginate: { itemsPerPage: pageSize,currentPage: p,totalItems: total }">
+
+         <td hidden>{{group.DummyKey}}</td>
+         <td hidden>{{group.TransporterID}}</td>
+         <td hidden>{{group.TruckSAPID}}</td>
+         <td>{{group.TruckLicense}}</td>
+         <td>{{group.TrailerLicense}}</td>
+         <td hidden>{{group.TrailerValid}}</td>
+         <!-- <td><button 
+          type="button" 
+          class="btn btn-primary btn-block"
+          (click)="GetDriverById(group.DummyKey,content)"
+          > {{'button.Update'|translate}} 
+            </button>
+         </td>
+          <td>
+            <button 
+            type="button" 
+            class="btn btn-danger btn-block"
+            > {{'button.Delete'|translate}} 
+          </button>
+          </td> -->
+         <td><button 
+                type="submit" 
+                class="btn btn-primary btn-block"
+                (click)="GetTruckById(group.DummyKey,content)"
+                > {{'button.Update'|translate}} 
+              </button>
+         </td>
+         <td>
+           <button 
+          type="submit" 
+          class="btn btn-danger btn-block"
+          > {{'button.Delete'|translate}} 
+        </button>
+   </td>
+   </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="LoadData($event)" previousLabel="{{'general.prev'|translate}}"
+nextLabel="{{'general.next'|translate}}"></pagination-controls>
+</div>
+
+</div>
+<br><br>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{'general.ManageTruckTrail'|translate}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="TrucksForm" 
+          (ngSubmit)="Save(TrucksForm)">
+      <div class="form-group" hidden>
+        <label for="DummyKey">{{'Truck.DummyKey'|translate}}</label>
+        <input id="DummyKey" class="form-control" 
+        formControlName="DummyKey"
+        placeholder="{{'Truck.DummyKey'|translate}}" name="DummyKey" >
+      </div>
+      <div class="form-group" hidden>
+          <label for="TransporterID">{{'Truck.TransporterID'|translate}}</label>
+          <input id="TransporterID" class="form-control" 
+          formControlName="TransporterID"
+          placeholder="{{'Truck.TransporterID'|translate}}" name="TransporterID" >
+      </div>
+      <div class="form-group" hidden>
+        <label for="TruckSAPID">{{'Truck.TruckSAPID'|translate}}</label>
+        <input id="TruckSAPID" class="form-control" 
+        formControlName="TruckSAPID"
+        placeholder="{{'Truck.TruckSAPID'|translate}}" name="TruckSAPID" >
+      </div>
+      <div class="form-group" hidden>
+        <label for="TrailerValid">{{'Truck.TrailerValid'|translate}}</label>
+        <input id="TrailerValid" class="form-control" 
+        formControlName="TrailerValid"
+        placeholder="{{'Truck.TrailerValid'|translate}}" name="TrailerValid" >
+      </div>
+      
+      <div class="form-group">
+          <label for="TruckLicense">{{'Truck.TruckLicense'|translate}}</label>
+          <input id="TruckLicense" class="form-control" 
+          formControlName="TruckLicense"
+          placeholder="{{'Truck.TruckLicense'|translate}}" name="TruckLicense" >
+      </div>
+      <div class="form-group">
+          <label for="TrailerLicense">{{'Truck.TrailerLicense'|translate}}</label>
+          <input id="TrailerLicense" 
+          formControlName="TrailerLicense"
+          class="form-control" placeholder="{{'Truck.TrailerLicense'|translate}}"
+           name="TrailerLicense" >
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" 
+               >{{'button.Save'|translate}}</button>
+        <button type="button" class="btn btn-danger" 
+              (click)="modal.close('Save click')">{{'button.Cancel'|translate}}</button>
+      </div>
+    </form>
+  </div>
+ 
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+
+<hr>
+
+<pre>{{ closeResult }}</pre>

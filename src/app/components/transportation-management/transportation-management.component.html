@@ -1,0 +1,54 @@
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <!-- <li class="nav-item">
+    <a class="nav-link active" 
+    id="testdt-tab" data-toggle="tab" 
+    href="#testdt" role="tab"
+     aria-controls="testdt" 
+    aria-selected="true" active>{{'transportation.Management' |translate}}</a>
+  </li>    -->
+  <li class="nav-item">
+      <a class="nav-link active" 
+      id="coupons-tab" data-toggle="tab" 
+      href="#coupons" role="tab"
+       aria-controls="coupons" 
+      aria-selected="true" active>{{'transportation.Management' |translate}}</a>
+    </li> 
+
+    <li class="nav-item">
+      <a class="nav-link" id="Drivers-tab" data-toggle="tab" 
+      href="#Drivers" role="tab" aria-controls="Drivers" 
+      aria-selected="false">{{'transportation.Drivers' |translate}}</a>
+    </li> 
+     <li class="nav-item" >
+      <a class="nav-link" id="Trucks-tab" data-toggle="tab" 
+            href="#Trucks" role="tab" aria-controls="Trucks" 
+            aria-selected="false"> {{ 'transportation.Trucks' | translate }}</a>
+    </li> 
+
+</ul>
+<!-- E-work  -->
+<div class="tab-content" id="myTabContent">
+  <div  class="tab-pane fade show active"  id="coupons" role="tabpanel" 
+  aria-labelledby="coupons-tab" active>
+
+  <driver-lookup></driver-lookup>
+     <app-coupons></app-coupons>
+  </div>   
+  <!-- <div  class="tab-pane fade show active"  id="Management" role="tabpanel" 
+    aria-labelledby="Management-tab" active>
+       <managment></managment>
+    </div>  -->
+
+     <div class="tab-pane fade" id="Drivers" role="tabpanel" 
+          aria-labelledby="Drivers-tab">
+       <drivers></drivers>
+    </div> 
+    
+     
+    <div class="tab-pane fade" id="Trucks" role="tabpanel" 
+        aria-labelledby="Trucks-tab" >
+      <trucks></trucks>
+
+    </div> 
+</div>

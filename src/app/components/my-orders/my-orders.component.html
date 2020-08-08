@@ -1,0 +1,48 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <filterorder  (statusId)="GetOrderByStatus($event)"></filterorder>
+
+        <table class="table table-striped mt-2" >
+            <thead>
+                <tr style="background-color: green;color:white ;">
+                    <td>{{'order.ref'|translate}}</td>
+                    <td>{{'order.FawryRefernce'|translate}}</td>
+                    <td>{{'order.amount'|translate}}</td>
+                    <td>{{'order.status'|translate}}</td>
+                    <td>{{'order.CreationDate'|translate}}</td>
+                    <td>{{'order.PaymentDate'|translate}}</td>
+
+                    <td>{{'order.payment_method'|translate}}</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of myOrders | paginate: { itemsPerPage: pageSize,currentPage: p,totalItems: total }"  >
+
+                    <td>{{order.OrderIdentifier}}</td>
+                    <td>{{order.PaymentRefNum}}</td>
+
+                    <td>{{order.Total}}</td>
+                    <td *ngIf="lang.currentLanguage==='ar-EG'">{{order.OrderStatus.StatusNameAR}}</td>
+                    <td *ngIf="lang.currentLanguage==='en-US'">{{order.OrderStatus.StatusName}}</td>
+                    <td> {{order.created_at | date:'medium'}}</td>
+                    <td> {{order.DueDate | date:'medium'}}</td>
+
+                    <td *ngIf="order.PaymentMethods&&lang.currentLanguage==='ar-EG'">
+                        {{order.PaymentMethods.MethodNameAR}}</td>
+                    <td *ngIf="order.PaymentMethods&&lang.currentLanguage==='en-US'">
+                        {{order.PaymentMethods.MethodName}}</td>
+                        <td *ngIf="!order.PaymentMethods">
+                               {{'order.not_assigned'|translate}}</td>
+                    <td><button [routerLink]="['/order-details/',order.Id]"
+                            class="btn btn-sm btn-success marg">{{'order.details'|translate}}</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="LoadOrder($event)" previousLabel="{{'general.prev'|translate}}"
+        nextLabel="{{'general.next'|translate}}"></pagination-controls>
+    </div>
+
+</div>
+

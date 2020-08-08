@@ -1,0 +1,172 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2 col-md-2"><button 
+      type="submit" 
+      class="btn btn-primary btn-block" 
+      (click)="openDriverModel(content)"> {{'button.AddNew'|translate}} 
+    </button></div>
+  </div>
+
+  <div>
+    <br>
+
+    <div class="row">
+
+      <div class="col-md-12">
+          <table class="table table-striped">
+              <thead>
+                  <tr class="tableHeader">
+                      <!-- <td class="tdcolor">{{'reports.MaterialDescription'|translate}}</td>
+                      <td class="tdcolor">{{'reports.Location'|translate}}</td>
+                      <td class="tdcolor">{{'reports.deliveryType'|translate}}</td>
+                      <td class="tdcolor">{{'reports.ContractNumber'|translate}}</td>
+                      <td class="tdcolor">{{'reports.couponNumber'|translate}}</td>
+                      <td class="tdcolor">{{'reports.Price'|translate}}</td>
+                      <td class="tdcolor">{{'reports.DispatchedQty'|translate}}</td>
+                      <td class="tdcolor">{{'reports.FinalInvoiceNumber'|translate}}</td>
+                      <td class="tdcolor">{{'reports.TotalInvoice'|translate}}</td> -->
+                      <th hidden>DummyKey</th>
+                      <th hidden>TransporterID</th>
+                      <th hidden>DriverID</th>
+                      <th>DriverName</th>
+                      <th>DriverLiscense</th>
+                      <th>DriverMobileNumber</th>
+                      <th hidden> UpdateRequest</th>
+                      <th>LicValid</th>
+                  </tr>
+              </thead>
+  <tbody>
+    <!-- DummyKey:number;
+    TransporterID:number;
+    DriverID:number;
+    DriverName:string;
+    DriverLiscense:string ;
+    DriverMobileNumber:string;
+    UpdateRequest:string;
+    LicValid:string; -->
+    <tr *ngFor="let group of data | paginate: { itemsPerPage: pageSize,currentPage: p,totalItems: total }">
+      <td hidden>{{group.DummyKey}}</td>
+      <td hidden>{{group.TransporterID}}</td>
+      <td hidden>{{group.DriverID}}</td>
+      <td>{{group.DriverName}}</td>
+      <td>{{group.DriverLiscense}}</td>
+      <td>{{group.DriverMobileNumber}}</td>
+      <td hidden>{{group.UpdateRequest}}</td>
+      <td>{{group.LicValid}}</td>
+
+      <td><button 
+       type="button" 
+       class="btn btn-primary btn-block"
+       (click)="GetDriverById(group.DummyKey,content)"
+       > {{'button.Update'|translate}} 
+         </button>
+      </td>
+       <td>
+         <button 
+         type="button" 
+         class="btn btn-danger btn-block"
+         > {{'button.Delete'|translate}} 
+       </button>
+       </td>
+ </tr>
+
+</tbody>
+</table>
+<pagination-controls (pageChange)="loaddata($event)" previousLabel="{{'general.prev'|translate}}"
+nextLabel="{{'general.next'|translate}}"></pagination-controls>
+</div>
+
+</div><!-- <pagination-controls (pageChange)="LoadData($event)" previousLabel="{{'general.prev'|translate}}"
+nextLabel="{{'general.next'|translate}}"></pagination-controls> -->
+  
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{'general.ManageDriver'|translate}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="DriverForm" 
+          (ngSubmit)="Save(DriverForm)"
+          >
+          <div class="form-group" hidden >
+            <label for="DummyKey">{{'Drivers.DummyKey'|translate}}</label>
+            <input id="DummyKey" class="form-control" 
+            formControlName="DummyKey"
+            placeholder="{{'Drivers.DummyKey'|translate}}" name="DummyKey" >
+        </div>
+        <div class="form-group" hidden>
+          <label for="TransporterID">{{'Drivers.TransporterID'|translate}}</label>
+          <input id="TransporterID" class="form-control" 
+          formControlName="TransporterID"
+          placeholder="{{'Drivers.TransporterID'|translate}}" name="TransporterID" >
+      </div>
+      <div class="form-group" hidden>
+        <label for="DriverID"> </label>
+        <input id="DriverID" class="form-control" 
+        formControlName="DriverID"
+        placeholder=" " name="DriverID" >
+    </div>
+    
+      <div class="form-group">
+          <label for="DriverName">{{'Drivers.Name'|translate}}</label>
+          <input id="DriverName" class="form-control" 
+          formControlName="DriverName"
+          placeholder="{{'Drivers.Name'|translate}}" name="DriverName" >
+      </div>
+      <div class="form-group">
+          <label for="DriverLiscense">{{'Drivers.LicenceNumber'|translate}}</label>
+          <input id="DriverLiscense" 
+          formControlName="DriverLiscense"
+          class="form-control" placeholder="{{'Drivers.LicenceNumber'|translate}}"
+           name="DriverLiscense" >
+      </div>
+       <div class="form-group">
+          <label for="LicValid">{{'Drivers.ValidateDate'|translate}}</label>
+          <input id="LicValid" class="form-control" placeholder="{{'Drivers.ValidateDate'|translate}}" 
+                                   name="LicValid" 
+                                   formControlName="LicValid"
+                                   type="date">
+      </div>  
+      <!-- <div class="form-group" hidden>
+        <label for="LicValid">{{'Drivers.ValidateDate'|translate}}</label>
+        <input id="LicValid" class="form-control" placeholder="{{'Drivers.ValidateDate'|translate}}" 
+                                 name="LicValid" 
+                                 formControlName="LicValid"
+                                  >
+    </div> -->
+    <div class="form-group" hidden>
+      <label for="UpdateRequest"> </label>
+      <input id="UpdateRequest" class="form-control" placeholder="" 
+                               name="UpdateRequest" 
+                               formControlName="UpdateRequest"
+                                >
+  </div>
+      <div class="form-group">
+          <label for="DriverMobileNumber">{{'Drivers.MobileNumber'|translate}}</label>
+          <input id="DriverMobileNumber" 
+          class="form-control"
+          formControlName="DriverMobileNumber"
+          placeholder="{{'Drivers.MobileNumber'|translate}}" name="MobileNumber" >
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" 
+               >{{'button.Save'|translate}}</button>
+        <button type="button" class="btn btn-danger" 
+              (click)="modal.close('Save click')">{{'button.Cancel'|translate}}</button>
+      </div>
+    </form>
+  </div>
+ 
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="openDriverModel(content)">Launch demo modal</button> -->
+
+<hr>
+
+

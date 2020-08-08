@@ -1,0 +1,34 @@
+<!-- https://www.w3schools.com/tags/tag_textarea.asp -->
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-transparent">
+      <app-navbar></app-navbar>
+  </header>
+     
+<!-- End Header -->
+
+  <!-- ======= Slider Section ======= -->
+  
+  <app-hero-carousel></app-hero-carousel>
+  <!-- <div class="hero-bg">
+    
+  </div> -->
+    <!-- ======= end Slider Section ======= -->
+  <main id="main">
+
+    <!-- ======= Featured Services Section Section ======= -->
+    <section id="featured-services" [hidden]="lUserRoleName!='Client'">
+      <div class="container">
+        <div class="row" >
+ 
+
+          <div style="width: 100%;">
+            <productstab></productstab>  
+          </div>
+
+          
+        </div>
+      </div>
+    </section><!-- End Featured Services Section -->
+</main>

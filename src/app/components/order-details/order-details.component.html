@@ -1,0 +1,233 @@
+<!-- [hidden]="UserType!='Admin'" -->
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist" [hidden]="lUserRoleName!='DirectSalesSupport'">
+    <li class="nav-item" hidden>
+      <a class="nav-link active" id="ManageSapCusomer-tab" data-toggle="tab" 
+      href="#ManageSapCusomer" role="tab" aria-controls="ManageSapCusomer" 
+      aria-selected="true">{{'general.ManageSapCusomer' |translate}} </a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" id="ManageOneCusomer-tab" data-toggle="tab" 
+      href="#ManageOneCusomer" role="tab" aria-controls="ManageOneCusomer" 
+      aria-selected="false">{{'order.ManageOrder' |translate}}</a>
+    </li>
+     <!-- <li class="nav-item">
+      <a class="nav-link" id="OrderPortal-tab" data-toggle="tab" 
+      href="#OrderPortal" role="tab" aria-controls="OrderPortal" aria-selected="false">Customer Order</a>
+    </li> -->
+</ul>
+<div class="tab-content" id="myTabContent" hidden>
+    <div class="tab-pane fade" id="ManageSapCusomer" 
+    role="tabpanel" aria-labelledby="ManageSapCusomer-tab" hidden>
+        <form [formGroup]="OrderFormSap" 
+        (ngSubmit)="saveOrderSap(OrderFormSap)" 
+        >  
+    <div class="form-group row" >
+      <label for="clientname" class="col-sm-2 col-form-label">{{'order.userName'| translate}}</label>
+      <label   class="col-sm-5 col-form-label" id="clientname" >Client Name Value</label>
+      
+    </div>
+    <div class="form-group row">
+        <label for="plantName" 
+        class="col-sm-2 col-form-label">{{'reports.plant'| translate}}</label>
+        <div class="col-sm-5">
+
+            <select *ngIf="lang.currentLanguage==='en-US'"
+            class="col-sm-5 col-form-label" 
+            required
+            formControlName="PlantId"
+                 class="form-control">
+                <!-- <option hidden [value]="" selected>Select one category </option> -->
+                <!-- <option  selected >{{'reports.plant'| translate}}</option> -->
+                <option [ngValue]="k.Id" *ngFor="let k of plants">
+                    {{k.PlantName}}
+                </option>
+            </select>
+         </div>
+    </div>
+    <div class="form-group row">
+        <label for="OrderStatusId" class="col-sm-2 col-form-label">{{'order.OrderStatus'| translate}}</label>
+        <div class="col-sm-5">
+
+            <select 
+            *ngIf="lang.currentLanguage==='en-US'"
+                    class="col-sm-5 col-form-label" 
+                    formControlName="OrderStatusId"
+                    required
+                  class="form-control">
+                <!-- <option hidden [value]="" selected>Select one category </option> -->
+                <!-- <option [value]="" selected>{{'order.OrderStatus'| translate}}</option> -->
+                <option [ngValue]="k.Id" *ngFor="let k of orderStatus">
+                    {{k.StatusName}}
+                </option>
+            </select>
+         </div>
+    </div>
+    
+    <div class="form-group row">
+        <label for="transfer" class="col-sm-2 col-form-label">Loading People</label>
+        <div class="col-sm-5">
+
+            <select *ngIf="lang.currentLanguage==='en-US'" class="col-sm-5 col-form-label" 
+                id="loading" class="form-control">
+                <option [ngValue]="null" selected>Select Loading People</option>
+                <!-- <option hidden [value]="" selected>Select one category </option>
+                <option [ngValue]="null" selected>Select Plant</option>
+                <option [ngValue]="k.Id" *ngFor="let k of plants">
+                    {{k.PlantName}}
+                </option> -->
+            </select>
+         </div>
+    </div>
+    <!-- <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-5">
+        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+      </div>
+    </div> -->
+
+    <div class="form-group row" >
+        <div class="col-sm-3"></div>  
+      <div class="col-sm-3">
+        <button type="submit"
+                 
+                 [disabled]="!OrderFormSap.valid"
+                 class="btn btn-primary btn-block"  >
+                 {{'order.Confirm'|translate}}</button>
+      </div>
+    </div>
+        </form>
+    </div> 
+    <div class="tab-pane fade show active" id="ManageOneCusomer" role="tabpanel" 
+    aria-labelledby="ManageOneCusomer-tab">
+        <sales-support-order-portal 
+        [orderId]="thisOrderId" 
+         
+        (user)="getuser($event)">
+            
+        </sales-support-order-portal>
+        <!-- <order-target-treder></order-target-treder> -->
+
+    </div> 
+</div>
+ 
+    <div class="row">
+    
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>{{'cart.product'|translate}} </td>
+                        <td> {{'order.DestinationTarget'|translate}} </td>
+                        <td> {{'order.ContactName'|translate}} </td>
+                        <td> {{'order.MobileNumber'|translate}} </td>
+
+                        <td> {{'product.price'|translate}} </td>
+
+                        <td>{{'cart.quantity'|translate}} </td>
+                        <!-- <td hidden></td> -->
+                        <td [hidden]="lUserRoleName!='DirectSalesSupport'"> {{'general.DeliverWay'|translate }} </td>
+                        <!-- <td> {{'order.DestinationTarget' |translate}} </td> -->
+                        <td [hidden]="lUserRoleName!='DirectSalesSupport'">  {{'general.Trader'|translate }} </td>
+                        <td [hidden]="lUserRoleName!='DirectSalesSupport'"> {{'order.OrderStatus'|translate }}</td>
+                        
+                         <td [hidden]="lUserRoleName=='DirectSalesSupport' || lUserRoleName=='Client'"> </td> 
+                        <td [hidden]="lUserRoleName=='DirectSalesSupport' || lUserRoleName=='Sales' || lUserRoleName=='Client'">{{'order.OrderStatus'|translate}} </td>
+                        <td [hidden]="lUserRoleName!='Client'">{{'general.DeliverWay'|translate}} </td> 
+
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items; index as i">
+                            <td>{{i}}</td>
+                        <td *ngIf="lang.currentLanguage==='ar-EG'">{{item.Product.ProductNameAR}}</td>
+                        <td *ngIf="lang.currentLanguage==='en-US'">{{item.Product.ProductName}}</td>
+                        <td>{{item.Destination.NameEn}}</td>
+                        <td>{{item.ContactOrder}}</td>
+                        <td>{{item.MobileOrder}}</td>
+
+                        <td>{{item.ItemPrice}}</td>
+                       
+                        <td>{{item.QTY}}</td>
+                        <td [hidden]="lUserRoleName!='DirectSalesSupport'">
+                            <app-deliver-order-way 
+                                   
+                                    (typeId)="GetOrderType($event,item)" 
+                                    [valueOrderType]="item.deliverWayId" 
+                                        >
+                            </app-deliver-order-way>
+                         </td>
+                         
+                         <!-- <td [hidden]="lUserRoleName!='DirectSalesSupport'">
+                             <app-deliver-order-way 
+                                                (typeId)="GetOrderType($event)" 
+                                                [valueOrderType]="item.deliverWayId" 
+                                                >
+                            </app-deliver-order-way>
+                        </td> -->
+                        <!-- <td hidden>{{item.Id}}</td> -->
+                        <!-- <td>
+                            <city-lookup (cityId)="getCity($event)"
+                                         [orderId]="thisOrderId">
+                            </city-lookup>
+                        </td> -->
+                        <td [hidden]="lUserRoleName!='DirectSalesSupport'">
+                            <!-- <select  
+                                id="users" class="form-control" (change)="getUser($event)">
+                                <option hidden [value]="" selected>Select Target Customer </option>
+                                <option [ngValue]="k.Id" *ngFor="let k of userModel" >
+                                    {{k.Username}}
+                                </option>
+                            </select> -->
+                            <userbycitylookup id="r_{{item.Id}}"
+
+                                    (User)="getuser($event,item)"
+                                    [cityId]="item.DestinationId" 
+                                    [valueUserId]="item.traderId" >
+                            </userbycitylookup>
+                                    <!-- [hidden]="ordertypeEmit=='1'+i" -->
+
+                        </td>
+                        <td *ngIf="item.TraderApprove==null" [hidden]="lUserRoleName!='DirectSalesSupport'"></td> 
+                        <td *ngIf="item.TraderApprove==true" [hidden]="lUserRoleName!='DirectSalesSupport'">{{'general.Accept'|translate}}</td>
+                        <td *ngIf="item.TraderApprove==false" [hidden]="lUserRoleName!='DirectSalesSupport'">{{'general.Reject'|translate}}</td>
+                        
+                        
+                            
+                         <td [hidden]="lUserRoleName=='DirectSalesSupport' || lUserRoleName!='Cleint'">{{item.TraderApprove}}</td>  
+                        <td  [hidden]="lUserRoleName!='Sales'">
+
+                            <button *ngIf="item.deliverWayId==1"
+                             (click)="Save(item.Id,true)" 
+                             [disabled]="item.TraderApprove!=null"
+
+                             class="btn btn-success marg">
+                                {{'general.Accept'|translate}}</button>
+                            <button *ngIf="item.deliverWayId==1"  (click)="Save(item.Id,false)"
+                                                         [disabled]="item.TraderApprove!=null"
+                                class="btn btn-danger marg">{{'general.Reject'|translate}}</button>
+    
+                        </td>
+
+                        <td *ngIf="item.deliverWayId==1" [hidden]="lUserRoleName!='Client'"> {{'general.Plant'|translate}}</td>
+                        <td *ngIf="item.deliverWayId==2" [hidden]="lUserRoleName!='Client'"> {{'general.Trader'|translate}}</td>
+                        <td *ngIf="item.deliverWayId==null" [hidden]="lUserRoleName!='Client'"> {{'general.NotKnown'|translate}}</td>
+
+                        <td [hidden]="lUserRoleName!='DirectSalesSupport'">
+                            <button 
+                            (click)="saveOrderItem(item)" 
+                            [disabled]="orderStatusValue !='3'"
+
+                            class="btn btn-sm btn-success marg">{{'general.Submit'|translate}}
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    </div>
+ 

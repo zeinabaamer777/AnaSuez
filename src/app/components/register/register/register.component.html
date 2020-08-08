@@ -1,0 +1,329 @@
+<!-- <div class="container">
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="">
+            <div class="" style="margin: 10%;opacity: 0.9;">
+                <form [formGroup]="registerForm" (ngSubmit)="saveUser(registerForm)">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input formControlName="FirstName" placeholder="{{'register.firstname'|translate}}" type="text" class="form-control" id="fullname">
+                            </div>                            
+                        </div>                    
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input formControlName="LastName"  placeholder="{{'register.lastname'|translate}}" type="text" class="form-control" id="fullname">
+                            </div>                            
+                        </div>                    
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input formControlName="Email" placeholder="{{'register.email'|translate}}" type="text" class="form-control" id="email">
+                            </div>
+
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input formControlName="Password" placeholder="{{'register.password'|translate}}" type="password" class="form-control" id="password">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input formControlName="PasswordConf" placeholder="{{'register.passwordconf'|translate}}" type="text" class="form-control" id="passwordconf">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input formControlName="Phone" placeholder="{{'register.mobile'|translate}}" type="text" class="form-control" id="mobile">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input formControlName="Address" placeholder="{{'register.address'|translate}}" type="text" class="form-control" id="address">
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input placeholder="{{'register.attchex'|translate}}" type="file" class="form-control" id="attchex">
+                                <label>{{'register.attchex'|translate}}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="radio-inline radio-margin"><input type="radio" name="optradio"
+                                    checked>{{'general.male'|translate}}</label>
+                            <label class="radio-inline"><input type="radio" name="optradio">{{'general.female'|translate}}</label>
+
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary btn-block">{{'register.register'|translate}}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div> -->
+
+
+<div class="container" style="padding-top:5%;padding-bottom:5%">
+
+    <div class="row">
+        <main class="col-sm-3">
+        </main>
+        <main class="col-sm-6">
+            <div>
+                <div class="grid">
+                    <div class="grid-body">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-8 col-12 mx-auto form-wrapper">
+                                <form [formGroup]="registerForm" 
+                                 (ngSubmit)="saveUser(registerForm)">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="FirstName"
+                                                    placeholder="{{'register.firstname'|translate}}" type="text"
+                                                    class="form-control" id="FirstName">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="LastName"
+                                                    placeholder="{{'register.lastname'|translate}}" 
+                                                    type="text"
+                                                    class="form-control" id="LastName">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="Email"
+                                                    placeholder="{{'register.email'|translate}}" 
+                                                    type="text"
+                                                    class="form-control" id="email">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="Password"
+                                                    placeholder="{{'register.password'|translate}}"
+                                                     type="password"
+                                                    class="form-control" id="password">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="PasswordConf" 
+                                                    type="password"
+                                                    placeholder="{{'register.passwordconf'|translate}}"
+                                                    class="form-control" id="passwordconf">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="Phone"
+                                                    placeholder="{{'register.mobile'|translate}}"
+                                                     type="text"
+                                                    class="form-control" id="mobile">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- <div class="form-group" *ngIf="lang.currentLanguage==='en-US'">
+                                        <select  formControlName="DestinationId"
+                                            id="city" class="form-control">
+                                            <option hidden [value]="" selected>Select one category </option>
+                                            <option [ngValue]="k.Id" *ngFor="let k of cities">
+                                                {{k.NameEn}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" *ngIf="lang.currentLanguage==='ar-EG'">
+                                        <select  formControlName="DestinationId"
+                                            id="city" class="form-control">
+                                            <option hidden [value]="" selected>أختر المدينة </option>
+                                            <option [ngValue]="k.Id" *ngFor="let k of cities">
+                                                {{k.NameAr}}
+                                            </option>
+                                        </select>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="DateOfBirth"
+                                                    placeholder="{{'register.DateOfBirth'|translate}}" 
+                                                    type="date"
+                                                    name="DateOfBirth"
+                                                    [ngModel]="startDate"
+                                                    class="form-control" id="DateOfBirth"
+                                                     >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select *ngIf="lang.currentLanguage==='en-US'"
+                                         formControlName="DestinationId"
+                                            id="city" class="form-control">
+                                            <option hidden [value]="" selected>Select one category </option>
+                                            <option [ngValue]="null" selected>Select City</option>
+                                            <option [ngValue]="k.Id" *ngFor="let k of cities">
+                                                {{k.NameEn}}
+                                            </option>
+                                        </select>
+                                        <select *ngIf="lang.currentLanguage==='ar-EG'"
+                                        formControlName="DestinationId"
+                                           id="city" class="form-control">
+                                           <option hidden [value]="" selected>Select one category </option>
+                                           <option [ngValue]="null" selected>أختر المدينة</option>
+                                           <option [ngValue]="k.Id" *ngFor="let k of cities">
+                                               {{k.NameAr}}
+                                           </option>
+                                       </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="StreetName"
+                                                    placeholder="{{'register.streetName'|translate}}" type="text"
+                                                    class="form-control" id="streetName">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="StreetNumber"
+                                                    placeholder="{{'register.StreetNumber'|translate}}" type="text"
+                                                    class="form-control" id="StreetNumber">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="PostalCode"
+                                                    placeholder="{{'register.postalCode'|translate}}" type="text"
+                                                    class="form-control" id="PostalCode">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input formControlName="Address"
+                                                    placeholder="{{'register.address'|translate}}" type="text"
+                                                    class="form-control" id="address">
+                                            </div>
+
+                                        </div>
+                                    </div> -->
+
+
+                                    <!-- <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input placeholder="{{'register.attchex'|translate}}" type="file"
+                                                    class="form-control" id="attchex">
+                                                <label>{{'register.attchex'|translate}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="radio-inline radio-margin"><input type="radio" name="optradio"
+                                                    checked>{{'general.male'|translate}}</label>
+                                            <label class="radio-inline"><input type="radio"
+                                                    name="optradio">{{'general.female'|translate}}</label>
+
+                                        </div>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="radio" name="gender"  formControlName="Gender" 
+                                                [checked]=1 value=1> {{'general.male'|translate}}
+                                                <input type="radio"  name="gender"  formControlName="Gender" 
+                                                [checked]=0 value=0> {{'general.female'|translate}}
+                                            </div> 
+                                        </div> 
+                                        
+                                     </div> 
+ 
+
+
+                                    <button type="submit"
+                                        class="btn btn-primary btn-block">{{'register.register'|translate}}</button>
+                                </form>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main> <!-- col.// -->
+        <main class="col-md-3">
+        </main>
+
+    </div>
+
+</div>

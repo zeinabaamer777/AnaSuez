@@ -1,0 +1,40 @@
+.phone-number{
+    font-size: 60px;
+    position: relative;
+}
+.phone-number span.phone-number-zero{
+    font-size: 80px;
+}
+
+.footer-parts{
+    margin-bottom: 5px;
+}
+.footer-text{
+    margin-bottom: 51px;
+}
+@media(max-width: 767px){
+    .footer-text{
+        margin-bottom: 0;
+    }
+    .footer-parts{
+        padding: 5px 0;
+    }
+    .footer-parts::after{
+        content:"";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 0.5em;
+        width: 80%;
+        border-top: 1px solid #e2e2e2;
+        margin: -8px auto;
+        /* z-index: -1; */
+    }
+    .footer-parts:last-child::after{
+        content: none;
+    }
+    h1.phone-number {
+        margin-bottom: 0;
+    }
+}

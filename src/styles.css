@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ngx-tabset/ngx-tabset";
+
+
+/* table td.positive {
+    background-color: #80ff00 !important;
+    color: #ffffff;
+} */
+.positive {
+    background-color: #00ff40;
+}
+
+.negative {
+    background-color: #ff0080;
+}
+.navbar-nav > .active > a, .navbar-nav > .active > a:focus, .navbar-nav > .active > a:hover{
+    /* background-color: black; */
+    /* color: #dfb858 !important; */
+    border-bottom: 1px solid #ffffff;
+}
+.activeTab{
+    background-color: rgb(160, 47, 47);
+  }
+  html { background-image: url(./assets/images/carousel2.png)}

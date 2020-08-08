@@ -1,0 +1,164 @@
+<div class="details-content mt-3">
+    <div class="row">
+  
+        <div class="col-xl-9 col-md-9 mb-2">
+    
+    
+            <main class="card">
+                <div class="row no-gutters">
+                    <aside class="col-sm-6 border-right">
+                        <article class="gallery-wrap">
+                            <div class="img-big-wrap">
+                                <div> 
+                                    <a href="{{img_url}}/{{product.Image}}" 
+                                    data-fancybox="" target="_blank">
+                                    <img src="{{img_url}}/{{product.Image}}" id="ImageID"></a>
+                                </div>
+                                    <!-- <a href="enlarged.html" target="_blank">
+                                        <img src="photos/photo-name.jpg" />
+                                   </a> -->
+                                   <!-- <div class="row">
+                                    <div class="column">
+                                      <img src="assets/images/items/c1.png" alt="Nature" onclick="myFunction(this);">
+                                    </div>
+                                    <div class="column">
+                                      <img src="assets/images/items/c2.png" alt="Snow" onclick="myFunction(this);">
+                                    </div>
+                                    <div class="column">
+                                      <img src="assets/images/items/c3.png" alt="Mountains" onclick="myFunction(this);">
+                                    </div>
+                                    <div class="column">
+                                      <img src="assets/images/items/c4.png" alt="Lights" onclick="myFunction(this);">
+                                    </div>
+                                  </div> -->
+                                  
+                                </div>
+                                <!-- <div class="zoom"></div> -->
+    
+                                <div class="img-small-wrap"  >
+                                    <!-- <div class="item-gallery" > 
+                                        <a href="assets/images/items/c1.png" 
+                                                 data-fancybox="" target="_blank">
+                                          <img src="assets/images/items/c1.png" >
+                                    </a> -->
+                                
+                                        <div class="item-gallery" *ngFor="let image of ProductImageses"> 
+                                            <a href="{{img_url}}/{{image.Path}}" 
+                                                 data-fancybox="" target="_blank">
+                                            <img src="{{img_url}}/{{image.Path}}">
+                                            </a>
+                                        </div>
+                                        <!-- <div class="item-gallery"> 
+                                            <img src="assets/images/items/c1.png"></div>
+                                        <div class="item-gallery"> 
+                                            <img src="assets/images/items/c2.png"></div> -->
+                              
+                                    
+                                </div>
+                                    <!-- <div class="item-gallery"> 
+                                        <img src="assets/images/items/c2.png"></div>
+                                    <div class="item-gallery"> 
+                                        <img src="assets/images/items/c1.png"></div>
+                                    <div class="item-gallery"> 
+                                        <img src="assets/images/items/c2.png"></div>
+                                </div>  -->
+                            <article class="card mt-3">
+                                <div class="card-body">
+                    
+                                    <p *ngIf="lang.currentLanguage==='ar-EG'"  innerHTML=" {{product.ProductFooterAR}}">
+                                       
+                                     </p>
+                                     <p *ngIf="lang.currentLanguage==='en-US'" innerHTML=" {{product.ProductFooter}}">
+                                        
+                                     </p>
+                                </div> 
+                            </article>
+                             
+                        </article>
+                    </aside>
+                    <aside class="col-sm-6">
+                        <article class="card-body">
+                           
+                            <h3 *ngIf="lang.currentLanguage==='ar-EG'" class="title mb-3">{{product.ProductNameAR}}</h3>
+                            <h3 *ngIf="lang.currentLanguage==='en-US'" class="title mb-3">{{product.ProductName}}</h3>
+    
+                            <!-- <div class="mb-3">
+                                <var class="price h3 text-warning">
+                                    <span class="currency"> {{'general.currencyEGP'|translate}} </span><span class="num">{{product.Price}}</span>
+                                </var>
+                                <span>/ {{'general.qryTon'|translate}}</span>
+                            </div> -->
+                            <p *ngIf="lang.currentLanguage==='ar-EG'" innerHTML=" {{product.LongDescriptionAR}}">
+                               
+                             </p>
+                             <p *ngIf="lang.currentLanguage==='en-US'"  innerHTML=" {{product.LongDescription}}">
+                                
+                             </p>
+                            
+                            <!-- <div class="rating-wrap">
+    
+                    
+                            </div>  -->
+                            <!-- <hr> -->
+                            <!-- <div class="row">
+                                <div class="col-sm-5"> -->
+                                    <!-- <dl class="dlist-inline">
+                                        <dt>{{'cart.quantity'|translate}} </dt>
+                                        <dd>
+                                            <select class="form-control form-control-sm" style="width:70px;">
+                                                <option> 1 </option>
+                                                <option> 2 </option>
+                                                <option> 3 </option>
+                                            </select>
+                                        </dd>
+                                    </dl>  -->
+                                <!-- </div>
+                                <div class="col-sm-7">
+                                    <dl class="dlist-inline">
+                                       
+                                    </dl> 
+                                </div>  -->
+                            <!-- </div>  -->
+                            <!-- <hr> -->
+                            <!-- (click)="addToCart(product.Id)" -->
+                            <button  
+                            (click)="BackToMainPage()"
+                            style="float: right;"
+                            class="btn btn-primary">{{'general.addToCart'|translate}}
+                         </button>                
+                        </article>
+                    </aside>
+                </div> 
+            </main>
+    <!--        
+            <article class="card mt-3">
+                <div class="card-body">
+    
+                    <p *ngIf="lang.currentLanguage==='ar-EG'"  innerHTML=" {{product.ProductFooterAR}}">
+                       
+                     </p>
+                     <p *ngIf="lang.currentLanguage==='en-US'" innerHTML=" {{product.ProductFooter}}">
+                        
+                     </p>
+                </div> 
+            </article> -->
+        
+    
+        </div> 
+        
+        <div class="col-md-3 sides-images">
+            <figure>
+                <img src="assets/images/s1.jpg">
+            </figure>
+              
+            <figure>
+                <img src="assets/images/s2.jpg">
+            </figure>
+           <!-- <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+           <a href="#" class="google"><i class="fa fa-google"></i></a> 
+           <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+           <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>  -->
+        </div> 
+    </div>
+</div>
+

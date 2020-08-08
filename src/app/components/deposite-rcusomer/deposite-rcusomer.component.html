@@ -1,0 +1,54 @@
+<!-- [hidden]="UserType!='RegularClient'" -->
+<p>ما زال  رقم الاوردر يتطلب تفعيل 
+    الفانكشن الخاصة بانشاء رقم جديد 
+    كل مره 
+    بالضافة لحفظ ال responce
+    داخل جدول bankpayments
+</p>
+<aside class="col-sm-3" style="position: center;" >
+      
+    <!-- <dl class="dlist-align">
+        <dt>{{'cart.base_price'|translate}} </dt>
+        <dd id="sub_total" class="text-right">{{'general.currencyEGP'|translate}} 568</dd>
+    </dl> -->
+    <!-- <dl class="dlist-align">
+        <dt>{{'cart.shipping_fees'|translate}}</dt>
+        <dd id="shipping_fees" class="text-right">{{'general.currencyEGP'|translate}} 130</dd>
+    </dl> -->
+    <!-- <dl class="dlist-align">
+        <dt>{{'cart.vat'|translate}} 14%</dt>
+        <dd id="vat" class="text-right">{{'general.currencyEGP'|translate}} 97.72</dd>
+    </dl> -->
+    <dl class="dlist-align h4">
+        <dt>{{'cart.total'|translate}}</dt>
+        <input type="text" id="TotalValue" [(ngModel)]="value" class="form-control"/>
+        <dd id="total" class="text-right"><strong>{{'general.currencyEGP'|translate}} {{Total}}</strong>
+        </dd>
+    </dl>
+    <hr>
+  
+    <figure style="justify-content: center;" class="itemside mb-3">
+        
+        <!-- <img style="width: 100px;cursor:pointer;margin: 4%;" (click)="DebositFawry()"
+         src="assets/images/icons/english-logo.png"> -->
+
+        <img  style="width: 100px;cursor:pointer" (click)="DepositeVisa()" 
+        src="assets/images/icons/pay-mastercard.png"> 
+
+        <aside class="aside">
+            <!-- <img style="width: 120%;cursor:pointer" src="assets/images/icons/english-logo.png"> -->
+            
+        </aside>
+       
+            <!-- <img style="cursor:pointer;width: 70%; margin-left: 39%;" (click)="pay()" src="assets/images/icons/pay-mastercard.png"> </aside> -->
+
+          
+       
+        <div class="text-wrap small text-muted">
+
+        </div>
+    </figure>
+    <!-- <a target="blank" href="https://fawry.com/where-to-pay/">
+        {{'cart.fawry_branches'|translate}}</a> -->
+   
+</aside>

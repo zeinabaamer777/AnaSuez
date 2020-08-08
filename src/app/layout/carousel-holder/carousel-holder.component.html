@@ -1,0 +1,18 @@
+<div class="container py-5">
+    <div class="owl-carousel-slider">
+        <owl-carousel-o [options]="customOptions">
+ 
+            <ng-container *ngFor="let slide of slides">
+              <ng-template carouselSlide [id]="slide.id">
+                
+                <div class="slider">
+                    <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title">
+                    <h5 class="text-center">{{slide.title}}</h5>
+             
+                  </div><!-- /.carousel-item team-member -->
+              </ng-template>
+            </ng-container>
+     
+          </owl-carousel-o>
+    </div>
+</div>

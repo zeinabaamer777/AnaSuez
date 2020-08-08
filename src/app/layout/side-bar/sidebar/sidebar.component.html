@@ -1,0 +1,62 @@
+<div class="card card-filter">
+    <article class="card-group-item">
+        <header class="card-header">
+            <a class="" aria-expanded="true" href="#" data-toggle="collapse" data-target="#collapse22">
+                <i class="icon-action fa fa-chevron-down"></i>
+                <h6 class="title">{{'sideBar.category'|translate}}</h6>
+            </a>
+        </header>
+        <div class="filter-content collapse show" id="collapse22">
+            <div class="card-body">
+                <label *ngFor="let type of types" class="form-check">
+                    <input class="form-check-input" value="" type="checkbox">
+                    <span *ngIf="lang.currentLanguage==='ar-EG'" class="form-check-label">
+                        <span  class="float-right badge badge-light round"></span>
+                        {{type.TypeNameAR}}
+                    </span>
+                    <span *ngIf="lang.currentLanguage==='en-US'" class="form-check-label">
+                        <span  class="float-right badge badge-light round"></span>
+                        {{type.TypeName}}
+                    </span>
+                </label> 
+            </div> 
+        </div> 
+    </article>
+    <article class="card-group-item">
+        <header class="card-header">
+            <a href="#" data-toggle="collapse" data-target="#collapse33">
+                <i class="icon-action fa fa-chevron-down"></i>
+                <h6 class="title">{{'sideBar.price'|translate}} </h6>
+            </a>
+        </header>
+        <div class="filter-content collapse show" id="collapse33">
+            <div class="card-body">
+                <!-- <input type="range" class="custom-range" min="0" max="100" name=""> -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>{{'general.min'|translate}}</label>
+                        <input class="form-control" min="0" placeholder="{{'general.currencyEGP'|translate}} 0" type="number">
+                    </div>
+                    <div class="form-group text-right col-md-6">
+                        <label>{{'general.max'|translate}}</label>
+                        <input class="form-control" placeholder="{{'general.currencyEGP'|translate}} 1,000" type="number">
+                    </div>
+                </div>
+                <button class="btn btn-block btn-outline-primary">{{'general.apply'|translate}}</button>
+            </div> 
+        </div>
+    </article> 
+    <!-- <article class="card-group-item">
+        <header class="card-header">
+            <a href="#" data-toggle="collapse" data-target="#collapse44">
+                <i class="icon-action fa fa-chevron-down"></i>
+                <h6 class="title">{{'sideBar.fetures'|translate}} </h6>
+            </a>
+        </header>
+        <div class="filter-content collapse show" id="collapse44">
+            <div class="card-body">
+             
+            </div>
+        </div>
+    </article> -->
+</div>

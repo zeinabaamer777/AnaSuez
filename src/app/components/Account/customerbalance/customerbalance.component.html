@@ -1,0 +1,55 @@
+
+    <h2></h2>
+<div class="aa_htmlTable">
+<br>
+    <table >
+        
+      <thead>
+          <tr>
+            <h2 >{{ 'Customer.MyBalance' | translate }}</h2>
+
+          </tr>
+        <tr>
+          <th style="background-color: lightsteelblue;">{{'header.plantDropDowHelwan'| translate }}</th>
+          <th style="background-color: lightsteelblue;">{{HelwanBalance}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td style="background-color: aquamarine;">{{'header.plantDropDowSuez'| translate }}</td>
+            <td style="background-color: aquamarine;">{{SueazBalance}}</td>
+        </tr>
+        <tr>
+            <td style="background-color:blanchedalmond;">{{'header.Torh'| translate }}</td>
+            <td style="background-color:blanchedalmond;">{{TorahaBalance}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td style="background-color:greenyellow;">{{'cart.total'| translate}}</td>
+          <td style="background-color:greenyellow;">{{SumBalance}}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  
+<!--   
+  
+  
+<div style="overflow-x:auto;">
+    <table style="width:100%">
+        <caption>{{ 'Customer.MyBalance' | translate }}</caption>
+        <tr>
+        <th>{{'header.plantDropDowHelwan'| translate }}</th>
+        <th>{{HelwanBalance}}</th>
+        </tr>
+        <tr>
+            <th>{{'header.plantDropDowSuez'| translate }}</th>
+            <td>{{SueazBalance}}</td>
+        </tr>
+        <tr>
+            <th>{{'header.plantDropDowQatamya'| translate }}</th>
+            <td>{{KatamyaBalance}}</td>
+        </tr>
+    </table>
+</div> -->

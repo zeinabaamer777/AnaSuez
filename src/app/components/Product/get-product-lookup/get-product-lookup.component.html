@@ -1,0 +1,9 @@
+<div class="form-group">
+    <select  
+        id="Products" class="form-control" (change)="selectedValue($event)" >
+        <option hidden [value]="" selected>Select Product </option>
+        <option [ngValue]="k.Id" *ngFor="let k of productModel" >
+            {{k.ProductName}}
+        </option>
+    </select>
+</div>

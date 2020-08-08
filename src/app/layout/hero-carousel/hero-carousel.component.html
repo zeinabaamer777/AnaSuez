@@ -1,0 +1,43 @@
+<ngb-carousel
+[showNavigationArrows]="false" 
+[showNavigationIndicators]="true"
+interval="6000"
+[keyboard]="true"
+[pauseOnHover]="false"
+[wrap]="true"
+[activeId]="'slideTwo'"
+>
+    <ng-template ngbSlide id="slideOne">
+        <div class="picsum-img-wrapper">
+            <img [src]="Images[0]"  width="100%" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+            <h3 class="animate__animated animate__fadeInDown">
+                {{ 'order.OrderCementOnline' | translate  }}
+              
+              </h3>
+              <a href="# " 
+              class="btn-get-started scrollto animate__animated animate__fadeInUp" >
+              {{ 'order.OrderNow' | translate  }}
+            </a>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide id="slideTwo">
+        <div class="picsum-img-wrapper">
+            <img [src]="Images[1]" width="100%" alt="Random second slide">
+        </div>
+        <div class="carousel-caption">
+            <h3 class="animate__animated animate__fadeInDown">
+                {{ 'order.OrderCementOnline' | translate  }}
+              
+              </h3>
+              <a href="# " 
+              class="btn-get-started scrollto animate__animated animate__fadeInUp" >
+              {{ 'order.OrderNow' | translate  }}
+            </a>
+        </div>
+    </ng-template>
+   
+</ngb-carousel>
+
+<!-- End Intro Section -->

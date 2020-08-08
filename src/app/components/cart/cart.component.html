@@ -1,0 +1,339 @@
+<div *ngIf="browserNameIE">
+    <table>
+        <tr><p>Install any of the following browsers to use Google Photos.</tr>
+        <tr>
+            <!-- <td>
+                <a href="https://www.google.com/chrome/?hl=en%22" aria-label="Download Google Chrome">
+                    <img src="https://ssl.gstatic.com/social/photosui/images/browsers/chrome.jpg"
+                     width="138px" height="138px"></a>
+                     <span>Google Chrome</span>
+                      
+            </td> -->
+           
+            <td>
+                <a href="https://www.microsoft.com/edge" aria-label="Download Edge">
+                    <img src="https://ssl.gstatic.com/social/photosui/images/browsers/edge.jpg" 
+                    width="138px" height="138px"></a>
+                    <span>Edge</span>
+            </td>
+            <td>
+                <a href="https://www.mozilla.com/firefox/" aria-label="Download Firefox">
+                    <img src="https://ssl.gstatic.com/social/photosui/images/browsers/firefox.jpg" 
+                    width="138px" height="138px"></a><span>Firefox</span>
+                
+            </td>
+            <td>
+                <a href="https://www.apple.com/safari/" aria-label="Download Safari">
+                    <img src="https://ssl.gstatic.com/social/photosui/images/browsers/safari.jpg"
+                    width="138px" height="138px"></a><span>Safari</span>
+            </td>
+            <td>
+                <a href="https://www.google.com/chrome/?hl=en%22" aria-label="Download Google Chrome">
+                    <img src="https://ssl.gstatic.com/social/photosui/images/browsers/chrome.jpg" 
+                    width="138px" height="138px"></a>
+                    <span>Google Chrome</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+<section *ngIf="IsAuth" class="section-content bg padding-y">
+    <div class="container">
+
+        <div class="row">
+
+            <table class="table table-striped;" hidden>
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">{{'order.DestinationTarget'|translate}}      <span style="color: red;">*</span></th>
+                    <th scope="col">{{'order.ContactName'|translate}} <span style="color: red;">*</span></th>
+                    <th scope="col">{{'order.MobileNumber'|translate}} <span style="color: red;">*</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">                           
+                         <orderdestination (selectedValueId)="updateDest($event)">
+
+                         </orderdestination>
+                    </th>
+                    <td><input type="text" class="form-control" id="ContactName"
+                        #ContactOrder></td>
+                    <td><input type="text" class="form-control" id="MobileNum"
+                        [(ngModel)]="MobileOrder"></td>
+                  </tr>
+                </tbody>
+              </table>
+            <main class="col-md-9">
+                <div class="col-md-3">
+                   
+                </div>
+                <div class="card">
+                    <div class="table-responsive">
+                        <table class="table table-hover shopping-cart-wrap">
+                            <thead class="text-muted">
+                                <tr>
+                                    <th scope="col">{{'cart.product'|translate}}</th>
+                                    <th scope="col">{{'order.DestinationTarget'|translate}}</th>
+                                    <!-- <th scope="col">{{'cart.plant'|translate}}</th> -->
+                                    <th scope="col">{{'cart.quantity'|translate}}</th>
+                                    <th scope="col">{{'cart.price'|translate}}</th>
+                                    <th scope="col">{{'cart.total'|translate}}</th>
+                                    <th scope="col">{{'cart.action'|translate}}</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart">
+
+                                <tr *ngFor="let item of cart_items">
+                                    <td>
+                                        <figure class="media">
+                                            <div class="img-wrap"><img src="{{img_url}}/{{item.Product.Image}}" class="img-thumbnail img-sm"></div>
+                                            <figcaption class="media-body">
+                                                <h6  *ngIf="lang.currentLanguage==='ar-EG'" class="title text-truncate">{{item.Product.ProductNameAR}}</h6>
+                                                <h6  *ngIf="lang.currentLanguage==='en-US'" class="title text-truncate">{{item.Product.ProductName}}</h6>
+                                                <!-- <dl class="dlist-inline small">
+                                                
+                                                </dl>
+                                                <dl class="dlist-inline small">
+                                                  
+                                                </dl> -->
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                    <td>
+                                        <figcaption class="media-body">
+                                                <h6  *ngIf="lang.currentLanguage==='ar-EG'"
+                                                 class="title text-truncate">{{item.Destination.NameAr}}</h6>
+                                                <h6  *ngIf="lang.currentLanguage==='en-US'" 
+                                                class="title text-truncate">{{item.Destination.NameEn}}</h6>
+                                                <!-- <dl class="dlist-inline small">
+                                                
+                                                </dl>
+                                                <dl class="dlist-inline small">
+                                                  
+                                                </dl> -->
+                                            </figcaption>
+                                        
+                                    </td>
+                                    <td>
+                                        <input (change)="UpdateItem(item.Id,$event.target.value)" 
+                                        value="{{item.QTY}}"  
+                                        type="number" 
+                                        min="5"
+                                        onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                        step="1" 
+                                        class="form-control" id="">
+                                    </td>
+                                    <td>
+                                        <div class="price-wrap">
+                                            <var>{{item.ItemPrice}} {{'general.priceTon'|translate}}</var>
+                                         
+                                        </div> 
+                                    </td>
+                                    <td>
+                                        <div class="price-wrap">
+                                            <var>{{item.Total}} </var>
+                                         
+                                        </div> 
+                                    </td>
+                                    <td>
+                                      
+                                        <button (click)="RemoveFromCart(item.Id)"
+                                         class="btn btn-outline-danger"
+                                         style="width: 100%;"> × {{'cart.remove'|translate}}</button>
+                                       <br>
+                                       <br>
+                                       <button 
+                                         (click)="ContinueBy(item.DestinationId,item.MobileOrder,item.ContactOrder,item.Address)"
+                                         style="width: 100%;"
+                                         class="btn btn-outline-primary">  {{'button.ContinueBy'|translate}}</button>
+
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                </tr>
+                        
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+
+            <aside class="col-md-3" >
+      
+                <!-- <dl class="dlist-align">
+                    <dt>{{'cart.base_price'|translate}} </dt>
+                    <dd id="sub_total" class="text-right">{{'general.currencyEGP'|translate}} 568</dd>
+                </dl> -->
+                <!-- <dl class="dlist-align">
+                    <dt>{{'cart.shipping_fees'|translate}}</dt>
+                    <dd id="shipping_fees" class="text-right">{{'general.currencyEGP'|translate}} 130</dd>
+                </dl> -->
+                <!-- <dl class="dlist-align">
+                    <dt>{{'cart.vat'|translate}} 14%</dt>
+                    <dd id="vat" class="text-right">{{'general.currencyEGP'|translate}} 97.72</dd>
+                </dl> -->
+                
+                <dl class="dlist-align h4">
+                    <dt>{{'cart.total'|translate}}</dt>
+                    <dd id="total" class="text-right">
+                        <strong>{{'general.currencyEGP'|translate}} {{Total}}</strong></dd>
+                </dl>
+                <hr>
+
+                <figure 
+                    class="itemside mb-3" *ngIf="browserNameIE==false">
+                    <!-- <img  style="width: 100px;cursor:pointer;margin: 4%;"
+                     (click)="FawryPay()" src="assets/images/icons/english-logo.png"> -->
+                    <!-- <img  style="width: 100px;cursor:pointer" 
+                    (click)="pay()" src="assets/images/icons/pay-mastercard.png">  -->
+
+
+                     <input class="mr-1" type="image"  style="width: 100px;cursor:pointer" 
+                    (click)="FawryPay_()" 
+                    src="assets/images/icons/pay-mastercard.png"/> 
+
+
+
+                     <input  class="mr-1" type="image" 
+                    (click)="FawryPay_()" 
+                    src="https://www.atfawry.com/assets/img/FawryPayLogo.jpg"/>
+ 
+
+                    <aside class="aside">
+                        <!-- <img style="width: 120%;cursor:pointer" src="assets/images/icons/english-logo.png"> -->
+                        
+                    </aside>
+                   
+                        <!-- <img style="cursor:pointer;width: 70%; margin-left: 39%;" (click)="pay()" src="assets/images/icons/pay-mastercard.png"> </aside> -->
+
+                      
+                   
+                    <div class="text-wrap small text-muted">
+                        
+                    </div>
+                </figure>
+                <a target="blank" href="https://fawry.com/where-to-pay/">{{'cart.fawry_branches'|translate}}</a>
+               <br><br>
+                <!-- <div class="dlist-align h4">
+                    {{'cart.Notes'|translate}}
+                </div> -->
+            </aside>
+            <aside class="col-md-3 " [hidden]="UserType=='RegularClient'">
+      
+                <!-- <dl class="dlist-align">
+                    <dt>{{'cart.base_price'|translate}} </dt>
+                    <dd id="sub_total" class="text-right">{{'general.currencyEGP'|translate}} 568</dd>
+                </dl> -->
+                <!-- <dl class="dlist-align">
+                    <dt>{{'cart.shipping_fees'|translate}}</dt>
+                    <dd id="shipping_fees" class="text-right">{{'general.currencyEGP'|translate}} 130</dd>
+                </dl> -->
+                <!-- <dl class="dlist-align">
+                    <dt>{{'cart.vat'|translate}} 14%</dt>
+                    <dd id="vat" class="text-right">{{'general.currencyEGP'|translate}} 97.72</dd>
+                </dl> -->
+                <!-- <dl class="dlist-align h4">
+                    <dt>{{'cart.total'|translate}}</dt>
+                    <dd id="total" class="text-right"
+                    ><strong>{{'general.currencyEGP'|translate}} {{Total}}</strong></dd>
+                </dl> -->
+                <hr>
+              <!-- <button class="btn btn-primary simpleMargin" (click)="confirmRclentOrder()">
+                  {{'order.Confirm'|translate}}</button> -->
+                <!-- <figure style="justify-content: center;" class="itemside mb-3">
+                    <img style="width: 100px;cursor:pointer;margin: 4%;" (click)="FawryPay()" src="assets/images/icons/english-logo.png">
+                    <img  style="width: 100px;cursor:pointer" (click)="pay()" src="assets/images/icons/pay-mastercard.png">  -->
+
+                    <!-- <aside class="aside"> -->
+                        <!-- <img style="width: 120%;cursor:pointer" src="assets/images/icons/english-logo.png"> -->
+                        
+                    <!-- </aside> -->
+                   
+                        <!-- <img style="cursor:pointer;width: 70%; margin-left: 39%;" 
+                            (click)="pay()"
+                             src="assets/images/icons/pay-mastercard.png"> </aside> -->
+
+                      
+                   
+                    <!-- <div class="text-wrap small text-muted">
+        
+                    </div>
+                </figure> -->
+                <!-- <a target="blank" href="https://fawry.com/where-to-pay/">{{'cart.fawry_branches'|translate}}</a> -->
+               
+
+
+            </aside>
+            
+        </div>
+
+    </div>
+</section>
+        <!-- <tr id="r1">
+                                    <td>
+                                        <figure class="media">
+                                            <div class="img-wrap"><img src="assets/images/items/c1.png" class="img-thumbnail img-sm"></div>
+                                            <figcaption class="media-body">
+                                                <h6 class="title text-truncate">SUEZ, HELWAN, TOURAH (100488)</h6>
+                                                <dl class="dlist-inline small">
+                                                
+                                                </dl>
+                                                <dl class="dlist-inline small">
+                                                  
+                                                </dl>
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                
+                              
+                                    <td>
+                                        <input (change)="UpdateItem(4,$event.target.value)"   type="number" min="2" class="form-control" id="">
+                                    </td>
+                                    <td>
+                                        <div class="price-wrap">
+                                            <var id="145" class="price">EGP 145</var>
+                                         
+                                        </div> 
+                                    </td>
+                                    <td class="text-right">
+                                      
+                                        <button onclick="RemoveFromCart('r1')" class="btn btn-outline-danger"> × Remove</button>
+                                    </td>
+                                </tr>
+                                <tr id="r2">
+                                    <td>
+                                        <figure class="media">
+                                            <div class="img-wrap"><img src="assets/images/items/c2.png" class="img-thumbnail img-sm"></div>
+                                            <figcaption class="media-body">
+                                                <h6 class="title text-truncate">SULPHATE RESISTANT CEMENT (2112074) </h6>
+                                                <dl class="dlist-inline small">
+                                              
+                                                </dl>
+                                                <dl class="dlist-inline small">
+                                                   
+                                                </dl>
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                   
+                                
+
+                                    <td>
+                                        <input (change)="UpdateItem(5,$event.target.value)"  type="number" min="2" class="form-control" id="">
+                                    </td>
+                                    <td>
+                                        <div class="price-wrap">
+                                            <var id="35" class="price">EGP 35</var>
+                                          
+                                        </div> 
+                                    </td>
+                                    <td class="text-right">
+                                     
+                                        <button onclick="RemoveFromCart('r2')" class="btn btn-outline-danger"> × Remove</button>
+                                    </td>
+                                </tr> -->

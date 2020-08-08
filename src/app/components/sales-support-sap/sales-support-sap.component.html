@@ -1,0 +1,296 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" hidden>
+      <a class="nav-link active" id="ManageSapCusomer-tab" data-toggle="tab" 
+      href="#ManageSapCusomer" role="tab" aria-controls="ManageSapCusomer" 
+      aria-selected="true">{{'general.ManageRegisteratoin'|translate}}</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" id="ManageOrder-tab" data-toggle="tab" 
+      href="#ManageOrder" role="tab" aria-controls="ManageOrder" 
+      aria-selected="false">{{'order.ManageOrder' |translate}}</a>
+    </li>
+    <!-- <li class="nav-item">
+        <a class="nav-link" id="PreviewOrder-tab" data-toggle="tab" 
+        href="#PreviewOrder" role="tab" aria-controls="PreviewOrder" 
+        aria-selected="false">{{'order.Preview' |translate}}</a>
+      </li> -->
+     <!-- <li class="nav-item">
+      <a class="nav-link" id="OrderPortal-tab" data-toggle="tab" 
+      href="#OrderPortal" role="tab" aria-controls="OrderPortal" aria-selected="false">Customer Order</a>
+    </li> -->
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" hidden
+    id="ManageSapCusomer" role="tabpanel" aria-labelledby="ManageSapCusomer-tab">
+        <div class="container" style="padding-top:5%;padding-bottom:5%">
+
+            <div class="row">
+                <main class="col-sm-3">
+                </main>
+                <main class="col-sm-6">
+                    <div>
+                        <div class="grid">
+                            <div class="grid-body">
+                                <div class="row">
+                                    <div class="col-lg-7 col-md-8 col-12 mx-auto form-wrapper">
+                                        <form [formGroup]="registerFormSap" 
+                                         (ngSubmit)="saveUser(registerFormSap)">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input formControlName="FirstName"
+                                                            placeholder="{{'register.firstname'|translate}}" type="text"
+                                                            class="form-control" id="FirstName">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" >
+                                                <div class ="row">
+                                                    <div class="col-md-12">
+                                                        <input formControlName="LastName"
+                                                            placeholder="{{'register.lastname'|translate}}" type="text"
+                                                            class="form-control" id="LastName">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input formControlName="Email"
+                                                            placeholder="{{'register.email'|translate}}"
+                                                             type="text"
+                                                            class="form-control" id="email">
+                                                    </div>
+        
+                                                </div>
+                                            </div>
+        
+                                            
+                                            
+                                           
+        
+        
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input formControlName="Password"
+                                                            placeholder="{{'register.password'|translate}}" type="password"
+                                                            class="form-control" id="password">
+                                                    </div>
+        
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input formControlName="PasswordConf" type="password"
+                                                            placeholder="{{'register.passwordconf'|translate}}"
+                                                            class="form-control" id="passwordconf">
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input formControlName="Phone"
+                                                            placeholder="{{'register.mobile'|translate}}"
+                                                             type="text"
+                                                            class="form-control" id="mobile">
+                                                    </div>
+        
+                                                </div>
+                                            </div>
+                                            <!-- <div class="form-group">
+                                                <select   formControlName="FK_CityId" id="city" 
+                                                    class="form-control">
+                                                    <option [value]="">Select City</option>
+                                                    <option [ngValue]="city.Id" *ngFor="let k of cities">
+                                                        {{ k.CityNameAr }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                             -->
+        
+         
+        
+                                             <div class="form-group">
+                                                <select *ngIf="lang.currentLanguage==='en-US'" 
+                                                formControlName="FK_CityId"
+                                                    id="city" class="form-control">
+                                                    <option hidden [value]="" selected>Select one category </option>
+                                                    <option [ngValue]="null" selected>Select City</option>
+                                                    <option [ngValue]="k.Id" *ngFor="let k of cities">
+                                                        {{k.NameEn}}
+                                                    </option>
+                                                </select>
+                                            </div>
+         
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input formControlName="StreetName"
+                                                            placeholder="{{'register.streetName'|translate}}" type="text"
+                                                            class="form-control" id="streetName">
+                                                    </div>
+        
+                                                </div>
+                                            </div>
+        
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input formControlName="StreetNumber"
+                                                            placeholder="{{'register.StreetNumber'|translate}}" type="text"
+                                                            class="form-control" id="StreetNumber">
+                                                    </div>
+                                                </div>
+                                            </div>
+        
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input formControlName="PostalCode"
+                                                            placeholder="{{'register.postalCode'|translate}}" type="text"
+                                                            class="form-control" id="PostalCode">
+                                                    </div>
+                                                </div>
+                                            </div> 
+        
+                                            <input formControlName="SapCustomerCode"
+                                            hidden
+                                             type="text"
+                                              class="form-control" id="SapCustomerCode">
+        
+                                            <button type="submit"
+                                                class="btn btn-primary btn-block">
+                                                {{'register.register'|translate}}</button>
+                                        </form>
+        
+        
+        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </main> <!-- col.// -->
+                <main class="col-md-3">
+                </main>
+        
+            </div>
+        
+        </div>
+    </div>
+    <div class="tab-pane fade show active" id="ManageOrder" role="tabpanel"
+     aria-labelledby="ManageOrder-tab">
+     
+     <filterorder (statusId)="GetOrderByStatus($event)"></filterorder>
+
+     <div class="row">
+
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>{{'order.ref'|translate}}</td>
+                        <td>{{'order.FawryRefernce'|translate}}</td>
+                        <td>{{'order.userName'| translate}}</td>
+                        <td>{{'register.mobile'|translate}}</td>
+                        <td>{{'order.amount'|translate}}</td>
+                        <td>{{'order.status'|translate}}</td>
+                        <td>{{'order.CreationDate'|translate}}</td>
+                        <td>{{'order.PaymentDate'|translate}}</td>
+                        <td>{{'order.payment_method'|translate}}</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of allOrder | paginate: { itemsPerPage: pageSize,currentPage: p,totalItems: total }"   
+                    >
+    
+                    <td>{{order.OrderIdentifier}}</td>
+                    <td>{{order.PaymentRefNum}}</td>
+                        <td>{{order.User.Username}}</td>
+                        <td>{{order.User.Phone}}</td>
+                        <td>{{order.Total}}</td>
+                        <td *ngIf="lang.currentLanguage==='ar-EG'">{{order.OrderStatus.StatusNameAR}}</td>
+                        <td *ngIf="lang.currentLanguage==='en-US'">{{order.OrderStatus.StatusName}}</td>
+                        <td> {{order.created_at | date:'medium'}}</td>
+                        <td> {{order.DueDate | date:'medium'}}</td>
+                            <td *ngIf="order.PaymentMethods&&lang.currentLanguage==='ar-EG'">
+                            {{order.PaymentMethods.MethodNameAR}}</td>
+                        <td *ngIf="order.PaymentMethods&&lang.currentLanguage==='en-US'">
+                            {{order.PaymentMethods.MethodName}}</td>
+                            <td *ngIf="!order.PaymentMethods">
+                                   {{'order.not_assigned'|translate}}</td>
+                        <td><button [routerLink]="['/order-details/',order.Id]"
+                                class="btn btn-sm btn-success marg">{{'order.details'|translate}}</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="LoadOrder($event)" previousLabel="{{'general.prev'|translate}}"
+            nextLabel="{{'general.next'|translate}}"></pagination-controls>
+        </div>
+    
+    </div>
+    
+   
+
+    
+    <!-- <div class="tab-pane fade" id="OrderPortal" role="tabpanel" aria-labelledby="OrderPortal-tab">
+        <sales-support-order-portal></sales-support-order-portal>
+    </div>  -->
+  
+
+
+
+
+
+
+    </div>
+    <!-- <div class="tab-pane fade" id="PreviewOrder" role="tabpanel" 
+    aria-labelledby="PreviewOrder-tab" >
+    <filterorder (statusId)="GetOrderByStatus($event)"></filterorder>
+    <div class="row">
+
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>{{'order.ref'|translate}}</td>
+                        <td>{{'order.amount'|translate}}</td>
+                        <td>{{'order.status'|translate}}</td>
+                        <td>{{'order.date'|translate}}</td>
+                        <td>{{'order.payment_method'|translate}}</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of myOrdersPreview">
+                        <td>{{order.OrderIdentifier}}</td>
+                        <td>{{order.Total}}</td>
+                        <td *ngIf="lang.currentLanguage==='ar-EG'">{{order.OrderStatus.StatusNameAR}}</td>
+                        <td *ngIf="lang.currentLanguage==='en-US'">{{order.OrderStatus.StatusName}}</td>
+                        <td> {{order.created_at}}</td>
+                        <td *ngIf="order.PaymentMethods&&lang.currentLanguage==='ar-EG'">
+                            {{order.PaymentMethods.MethodNameAR}}</td>
+                        <td *ngIf="order.PaymentMethods&&lang.currentLanguage==='en-US'">
+                            {{order.PaymentMethods.MethodName}}</td>
+                            <td *ngIf="!order.PaymentMethods">
+                                   {{'order.not_assigned'|translate}}</td>
+                        <td><button [routerLink]="['/order-details/',order.Id]"
+                                class="btn btn-sm btn-success marg">{{'order.details'|translate}}</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    </div>
+    
+    
+    </div> -->
+  </div>
+
+

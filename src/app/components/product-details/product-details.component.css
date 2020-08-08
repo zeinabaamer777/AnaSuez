@@ -1,0 +1,52 @@
+.zoom {
+    padding: 50px;
+    /* background-color: green; */
+    transition: transform .2s; /* Animation */
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  .gallery-wrap .img-big-wrap img{
+      width: 100%;
+      height: 400px;
+  }
+@media(max-width: 991px){
+  .gallery-wrap .img-big-wrap img{
+    height: 300px;
+    width: 100%;
+  }
+    
+}
+@media(max-width:576px){
+  .gallery-wrap .img-big-wrap img{
+    height: 250px;
+    width: 80%;
+  }
+}
+
+.sides-images figure{
+  margin-bottom: 10px;
+}
+
+.sides-images figure img{
+  width: 100%;
+  height: 100%;
+}
+@media(max-width: 767px){
+  .sides-images figure{
+    margin-bottom: 10px;
+    height: 400px;
+    width: 80%;
+  }
+}
+@media(max-width:576px){
+  .sides-images figure{
+    height: 400px;
+    width: 60%;
+    margin: 10px auto;
+  }
+}

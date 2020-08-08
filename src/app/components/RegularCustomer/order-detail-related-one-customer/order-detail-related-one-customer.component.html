@@ -1,0 +1,59 @@
+<div class="row">
+    
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>{{'cart.product'|translate}} </td>
+                    <td> {{'order.DestinationTarget'|translate}} </td>
+                    <td>{{'order.userName'| translate}}</td>
+                    <td>{{'register.mobile'|translate}}</td>
+                    <td>{{'cart.quantity'|translate}} </td>
+
+                    <!-- <td> {{'product.price'|translate}} </td> -->
+<td></td>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items">
+                    <td *ngIf="lang.currentLanguage==='ar-EG'">{{item.Product.ProductNameAR}}</td>
+                    <td *ngIf="lang.currentLanguage==='en-US'">{{item.Product.ProductName}}</td>
+                    <td>{{item.Destination.NameEn}}</td>
+                    <td>{{item.ContactOrder}}</td>
+                    <td>{{item.MobileOrder}}</td>
+                    <td>{{item.QTY}}</td>
+                    <!-- <td>{{item.ItemPrice}}</td> -->
+                    <td *ngIf="item.TraderApprove==null">
+                        <button  (click)="Save(item.Id,true)" 
+                        class="btn btn-success marg">{{'general.Accept'|translate}}</button>
+                        <button  (click)="Save(item.Id,false)"
+                         class="btn btn-danger marg">{{'general.Reject'|translate}}</button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div class="row" hidden *ngIf="ApproveResult==null">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-3">
+        <button type="submit" 
+        class="btn btn-primary btn-block"
+        (click)="Save(true,$event)" >
+        {{'general.Accept'|translate}}</button>
+    </div>
+    <div class="col-md-3">
+        <button type="submit" 
+        (click)="Save(false)"
+        class="btn btn-primary btn-block">
+        {{'general.Reject'|translate}}</button>    
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>

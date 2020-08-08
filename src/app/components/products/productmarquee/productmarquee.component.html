@@ -1,0 +1,29 @@
+
+<MARQUEE *ngIf="lang.currentLanguage==='ar-EG'"   direction="right" onMouseOver="this.stop()"
+onMouseOut="this.start()" width="80%" height="60%" >
+<a href="#/details/{{prod.Id}}" *ngFor="let prod of productsVm">
+
+       <label *ngIf="lang.currentLanguage==='ar-EG'" class="title mb-3">{{prod.ProductNameAR}}</label>
+
+       <img src="{{img_url}}/{{prod.Image}}" 
+         
+         alt="{{prod.ProductNameAR}}" 
+         title="{{prod.ProductNameAR}}"
+         style="width: 120px;height:  120px;background-color: #fff;">
+ </a>
+</MARQUEE>
+
+<MARQUEE *ngIf="lang.currentLanguage==='en-US'"   direction="left" onMouseOver="this.stop()"
+onMouseOut="this.start()" width="80%" height="60%" >
+<a href="#/details/{{prod.Id}}" *ngFor="let prod of productsVm">
+
+      <label *ngIf="lang.currentLanguage==='en-US'" >{{prod.ProductName}}</label>
+
+      <img src="{{img_url}}/{{prod.Image}}" 
+        
+        alt="{{prod.ProductName}}" 
+        title="{{prod.ProductName}}"
+        style="width: 120px;height:  120px;background-color: #fff;">
+
+</a>
+</MARQUEE>

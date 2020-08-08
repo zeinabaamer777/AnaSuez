@@ -1,0 +1,212 @@
+{
+  "header.searchPlaceHold": "بحث",
+  "header.plantDropDowAll": "كل المصانع",
+  "header.plantDropDowHelwan": "حلوان",
+  "header.plantDropDowSuez": "السويس",
+  "header.plantDropDowQatamya": "القطامية",
+   "header.Torah": "طره",
+
+
+  "userMenu.profile": "الملف الشخصي",
+  "userMenu.MyOrders": "الطلبيات",
+  "userMenu.Logout": "تسجيل الخروج",
+  "userMenu.Management": "متابعه المهام",
+  "userMenu.Login":"تسجيل الدخول",
+  "userMenu.ManagementOneCustomerByTrader":"طلبات العملاء",
+
+  
+
+
+  "sideBar.category": "النوع",
+  "sideBar.price": "السعر",
+  "sideBar.fetures": "المميزات",
+
+  "general.currencyEGP": "ج . م",
+  "general.qryTon": "طن",
+  "general.details": "التفاصيل",
+  "general.addToCart": "إضافة",
+  "general.Cart": "عربة التسوق",
+  "general.min": "اقل قيمة",
+  "general.max": "أعلى قيمة",
+  "general.apply": "تطبيق",
+  "general.contacts": "للتواصل",
+  "general.call_center": "خدمة العملاء",
+  "general.male": "ذكر",
+  "general.female": "انثى",
+  "general.error": "خطأ",
+  "general.edit": "تعديل",
+  "general.save": "حفظ",
+  "general.Submit": "حفظ",
+
+  "general.Manageproducts": "أدارة المنتجات",
+
+  "general.products": "المنتجات",
+  "general.ok": "موافق",
+  "general.Reject": "غير موافق",
+  "general.Accept": " موافق",
+  "general.cancel": "إلغاء",
+  "general.add": "إضافة",
+  "general.activate": "تفعيل",
+  "general.deactivate": "تعطيل",
+  "general.next": "التالي",
+  "general.prev": "السابق",
+  "general.imgupload": "إضافة صورة",
+  "general.currentImg": "الصورة الحالية",
+  "general.priceTon": "ج.م للطن",
+  "general.filter":"تصفية",
+  "general.selectPlan":"كل المصانع",
+  "general.excelexport":"تحميل",
+  "general.ManageRegisteratoin":"اضافة عملاء دائمين",
+  "general.reset": "استعادة كلمة المرور",
+  "general.resetPlaceholder": "إسم المستخدم او البريد الالكتروني",
+   "general.ManageSapCusomer" :"ادارة العملاء الدائمين",
+   "general.ManageOneCusomer" :"ادارة العملاء المؤقتين",
+   "general.DeliverWay" :"طريقة التوصيل",
+   "general.Plant" :"أرض مصنع",
+   "general.Trader" :"تاجر",
+   "general.DateFrom" :"تاريخ من",
+   "general.DateTo" :"تاريخ الى",
+   "general.NotKnown" :"غير معرف",
+
+   "general.PlantOrder" :"طلبات أرض مصنع",
+   "general.TraderOrder" :"طلبات من تاجر",
+
+   "general.CustomerService" :"خدمع العملاء",
+   "general.SalesSupport":"الدعم الفنى",
+   "general.DirectSalesSupport":"أدارة الدعم الفنى",
+   
+   "OrderStatus.Cart":"في عربه التسوق",
+   "OrderStatus.Waiting":"في انتظار الدفع",
+   "OrderStatus.Paied":"تم الدفع",
+   "OrderStatus.Canceled":"تم الإلغاء",
+   "OrderStatus.Shipped":"تم التحميل",
+   "OrderStatus.Closed":"تم الانتهاء",
+  
+   "OrderStatus.ChooseStatus":"أختر الحالة",
+
+
+
+  "login.username": "إسم المستخدم",
+  "login.password":"كلمة المرور",
+  "login.login":"تسجيل الدخول",
+  "login.sign-up":"إنشاء حساب جديد",
+  "login.noaccyet":"لا تملك حساب؟ سجل الان",
+  "login.resetPassword": "نسيت كلمة المرور",
+  "login.newPassword": "كلمة المرور الجديدة",
+  "login.activationCode": "كود التفعيل",
+ "login.passwordConf": "تأكيد كلمة المرور",
+ 
+  "register.fullname":"الإسم الكامل",
+  "register.firstname":"الإسم الاول",
+  "register.lastname":"الإسم الأخير",
+  "register.mobile":"رقم التلفون المحمول",
+  "register.password":"كلمة المرور",
+  "register.passwordconf":"أعد كتابة كلمة المرور",
+  "register.email":"البريد الالكتروني",
+  "register.address":"العنوان",
+  "register.attchex":"المرفقات مثال : الرقم القومي",
+  "register.register":"تسجيل",
+  "register.streetName":"إسم الشارع",
+  "register.StreetNumber":"رقم الشارع",
+  "register.postalCode":"الرمز البريدي",
+  "register.DateOfBirth":"تاريخ الميلاد",
+  "register.gender":"النوع",
+
+  "cart.product":"المنتج",
+  "cart.shipping":"الشحن",
+  "cart.plant":"المصنع",
+  "cart.quantity":"الكمية (طن)",
+  "cart.price":"السعر",
+  "cart.action":"تعديل",
+  "cart.base_price":"السعر الاساسي",
+  "cart.shipping_fees":"رسوم النقل",
+  "cart.vat":"الضريبة",
+  "cart.total":"الإجمالي",
+  "cart.fawry_branches":"إضغط هنا لتعرف اقرب فرع لخدمات فوري",
+  "cart.remove":"حذف",
+  "cart.Notes":"يمكن الدفع من خلال فورى باى عن طريق الكاش أو البطاقة الأئتمانيه",
+
+  "message.enterRequiredFaileds":"تأكد من الدخول ثم أدحل الحقول المطلوبة",
+  "message.Done":"تم بنجاح",
+
+  "message.userCreated":"تم إنشاء الحساب",
+  "message.delconf":"هل تريد فعلا حذف هذا المنتج من عربة التسوق",
+  "message.fawrypay":"هل تريد فعلا الدفع باستخدام فوري",
+  "message.QtyLimit":"الكمية لا يجب أن تقل عن خمسة طن",
+  "activation.wait":"الرجاء الإنتظار حتى يتم تفعيل الحساب...........",
+
+
+  "product.name":"إسم المنتج",
+  "product.namear":"إسم المنتج العربي",
+  "product.label":"العنوان",
+  "product.labelar":"العنوان العربي",
+  "product.footer":"",
+  "product.footerar":"",
+  "product.shortdesc":"الوصف المختصر",
+  "product.shortdescar":"الوصف المختصر العربي",
+  "product.longdesc":"الوصف التفصيلي",
+  "product.longdescar":"الوصف التفصيلي العربي",
+  "product.producttype":"نوع المنتج",
+  "product.price":"السعر",
+
+  "messages.updateproduct":"تم تعديل المنتج",
+  "messages.createproduct":"تم إضافة المنتج",
+
+
+  "payment.complete":"  تمت عملية الدفع بنجاح.فى حالة الدفع بفورى كاش برجاء السداد خلال 12 ساعه",
+  "payment.Error":"لم تتم عملية الدفع ",
+
+  "order.Preview":"متابعه الطلبات",
+
+  "order.details":"التفاصيل",
+  "order.ref":"رقم الطلب",
+  "order.amount":"الإجمالي",
+  "order.status":"الحالة",
+  "order.payment_method":"طريقة الدفع",
+  "order.date":"التاريخ",
+  "order.not_assigned":"لم يتم تحديد طريقة الدفع",
+  "order.userName":"اسم العميل",
+  "order.Confirm":"تفعيل الطلبية",
+  "order.OrderStatus":"حاله الطلب",
+  "order.ManageOrder":"متابعه الطلبات",
+  "order.DestinationTarget":"جه التوصيل",
+  "order.ContactName":"اسم العميل",
+  "order.MobileNumber":"رقم الهاتف",
+  "order.PrepareShipped":"تجهز للتحميل",
+
+  "customer.CRN":"الرقم المرجعي الخاص بك هو",
+  "customer.TOT":"إجمال المبلغ",
+  "customer.Hint":"برجاء دفع الفاتورة من خلال اقرب مركز فوري خلال 24 ساعة",
+  "Customer.Debosite":"ايداع",
+
+  "reports.coupon":"الكوبونات",
+  "reports.company":"الشركة",
+  "reports.plant":"المصنع",
+  "reports.deliveryType":"نوع التوصيل",
+  "reports.description":"الوصف",
+  "reports.orderQty":"الكمية",
+  "reports.totalValue":"الإجمالى",
+  "reports.contractDate":"تاريخ العقد",
+  "reports.contractNumber":"رقم العقد",
+  "reports.couponNumber":"رقم الكوبون",
+  "reports.volumes":"الكميات",
+  "reports.MaterialDescription":"المنتج",
+  "reports.Location":"موقع التسليم",
+  "reports.ContractNumber":"رقم العقد",
+  "reports.Price":"السعر",
+  "reports.DispatchedQty":"الكمية",
+  "reports.FinalInvoiceNumber":"رقم الفاتورة النهائية",
+  "reports.TotalInvoice":"السعر النهائي للفاتورة",
+  "reports.statistics":"إحصائيات",
+
+
+
+  "charts.monthVolume":"رصيدك الشهر الحالي مقابل الشهر السابق",
+  "charts.yearsVolume":"رصيدك العام الحالي مقابل العام السابق"
+  
+
+
+  
+
+
+  }

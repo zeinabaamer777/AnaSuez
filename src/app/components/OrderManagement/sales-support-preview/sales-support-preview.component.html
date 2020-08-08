@@ -1,0 +1,130 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" 
+      id="OrderPlants-tab" data-toggle="tab" 
+      href="#OrderPlants" role="tab"
+       aria-controls="OrderPlants" 
+      aria-selected="true" active>{{ 'order.ManageOrder' | translate }} </a>
+    </li> 
+    <li class="nav-item" hidden>
+        <a class="nav-link" id="OrderTrader-tab" data-toggle="tab" 
+              href="#OrderTrader" role="tab" aria-controls="OrderTrader" 
+              aria-selected="false"> {{ 'general.TraderOrder' | translate }}</a>
+    </li> 
+</ul>
+
+<div class="tab-content" id="myTabContent">
+    <div  class="tab-pane fade show active"  id="OrderPlants" role="tabpanel" 
+        aria-labelledby="OrderPlants-tab" active>
+
+<div class="row">
+
+    <div class="col-md-12">
+        <filterorder (statusId)="GetOrderByStatus($event)"></filterorder>
+        <table class="table table-striped" >
+            <thead>
+                <tr style="background-color: green;color: white;">
+                    <td>{{'order.ref'|translate}}</td>
+                    <td>{{'order.FawryRefernce'|translate}}</td>
+
+                    <td>{{'register.fullname'|translate}}</td>
+                    <td>{{'register.mobile'|translate}}</td>
+                    <td>{{'order.amount'|translate}}</td>
+                    <td>{{'order.status'|translate}}</td>
+                    <td>{{'order.CreationDate'|translate}}</td>
+                    <td>{{'order.PaymentDate'|translate}}</td>
+
+                    <td>{{'order.payment_method'|translate}}</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of myOrders | paginate: { itemsPerPage: pageSize,currentPage: p,totalItems: total }"
+                
+                >
+
+                <td>{{order.OrderIdentifier}}</td>
+                <td>{{order.PaymentRefNum}}</td>
+                    <td >{{order.User.FirstName}}  {{order.User.LastName}}</td>
+                    <td >{{order.User.Phone}}</td>
+                    <td>{{order.Total}}</td>
+                    <td *ngIf="lang.currentLanguage==='ar-EG'">{{order.OrderStatus.StatusNameAR}}</td>
+                    <td *ngIf="lang.currentLanguage==='en-US'">{{order.OrderStatus.StatusName}}</td>
+                    <td> {{order.created_at | date:'medium'}}</td>
+                    <td> {{order.DueDate | date:'medium'}}</td>
+
+                    <td *ngIf="order.PaymentMethods&&lang.currentLanguage==='ar-EG'">
+                        {{order.PaymentMethods.MethodNameAR}}</td>
+                    <td *ngIf="order.PaymentMethods&&lang.currentLanguage==='en-US'">
+                        {{order.PaymentMethods.MethodName}}</td>
+                        <td *ngIf="!order.PaymentMethods">
+                               {{'order.not_assigned'|translate}}</td>
+                    <!-- <td><button (click)="UpdateTypeOrderBySalesTeam(order.Id)" 
+                        *ngIf="order.OrderStatus.StatusName=='Payed' || order.OrderStatus.StatusNameAR=='تم الدفع'"
+                    class="btn btn-sm btn-success marg">{{'order.PrepareShipped'|translate}}</button>
+                </td> -->
+                    <td><button [routerLink]="['/order-details/',order.Id]"
+                            class="btn btn-sm btn-success marg">{{'order.details'|translate}}</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="LoadOrders($event)" previousLabel="{{'general.prev'|translate}}"
+            nextLabel="{{'general.next'|translate}}"></pagination-controls>
+    </div>
+
+</div>
+
+  
+</div> 
+
+<div class="tab-pane fade" id="OrderTrader" role="tabpanel"  hidden
+  aria-labelledby="OrderTrader-tab" >
+
+  <div class="row">
+
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>{{'order.ref'|translate}}</td>
+                    <td>{{'register.fullname'|translate}}</td>
+                    <td>{{'register.mobile'|translate}}</td>
+                    <td>{{'order.DestinationTarget'|translate}}</td>
+                    <!-- <td>{{'order.amount'|translate}}</td> -->
+                    <!-- <td>{{'order.status'|translate}}</td> -->
+                    <!-- <td>{{'order.date'|translate}}</td> -->
+                    <!-- <td>{{'order.payment_method'|translate}}</td> -->
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of OrderUsersModel">
+                    <td>{{order.Order.OrderIdentifier}}</td>
+                    <td >{{order.Order.User.FirstName}}  {{order.Order.User.LastName}}</td>
+                    <td >{{order.Order.User.Phone}}</td>
+                    <td >{{order.Destination.NameAr}}</td>
+
+                   
+                    <!-- <td>{{order.Total}}</td> -->
+                    <!-- <td *ngIf="lang.currentLanguage==='ar-EG'">{{order.OrderStatus.StatusNameAR}}</td>
+                    <td *ngIf="lang.currentLanguage==='en-US'">{{order.OrderStatus.StatusName}}</td> -->
+                    <!-- <td> {{order.created_at}}</td> -->
+                    <!-- <td *ngIf="order.PaymentMethods&&lang.currentLanguage==='ar-EG'">
+                        {{order.PaymentMethods.MethodNameAR}}</td>
+                    <td *ngIf="order.PaymentMethods&&lang.currentLanguage==='en-US'">
+                        {{order.Order.PaymentMethods.MethodName}}</td>
+                        <td *ngIf="!order.PaymentMethods">
+                               {{'order.not_assigned'|translate}}</td> -->
+                    <td><button (click)="CloseTraderOrder(order.Id)" 
+                        *ngIf="order.CustomerServiceApprove!=true"
+                        class="btn btn-sm btn-success marg">{{'OrderStatus.Closed'|translate}}</button></td>
+                </tr>
+                <!-- *ngIf="order.OrderStatus.StatusName!='Closed' || order.OrderStatus.StatusNameAR!='تم الانتهاء'" -->
+                            
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</div> 
+</div> 

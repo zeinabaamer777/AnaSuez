@@ -1,0 +1,68 @@
+<div class="container" style="padding-top:5%;padding-bottom:5%">
+
+    <div class="row">
+        
+        <main class="col-sm-12">
+            <div>
+                <div class="grid">
+                    <div class="grid-body">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-8 col-12 mx-auto form-wrapper">
+                                <form [formGroup]="UpdateForm" 
+                                 (ngSubmit)="Update()">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="mobile">{{'register.mobile'|translate}}</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                    <input  
+                                                    formControlName="Phone"
+                                                    placeholder="{{'register.mobile'|translate}}" 
+                                                    type="text"
+                                                    class="form-control" 
+                                                    id="Phone">     
+                                                    
+
+                                            </div>
+                                             
+
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="email">{{'register.email'|translate}}</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input 
+                                                formControlName="Email"
+
+                                                    placeholder="{{'register.email'|translate}}" 
+                                                    type="text"
+                                                    
+                                                    
+                                                    class="form-control" id="Email">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                            <button type="submit"
+                                             
+                                             class="btn btn-primary btn-block">
+                                            {{'general.edit'|translate}}</button>
+
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

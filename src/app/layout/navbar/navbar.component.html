@@ -1,0 +1,136 @@
+<div id="navbar-content">
+    <div class="container">
+        <!-- navbar  -->
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand float-left" href="#"><img src="../../../../assets/images/HC_Suez_Cement_Solid white.png"></a>
+            <button class="navbar-toggler pull-xs-right hidden-md-up  collapsed" type="button" data-target="#navbarNav" (click)="toggleNavbar = !toggleNavbar" >
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="!toggleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">
+                        <!-- /products -->
+                        <a class="nav-link" [routerLink]="['/shopping']">
+                            <i class="fa fa-home"></i> {{ 'general.products' | translate }}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">
+                        <a class="nav-link" [routerLink]="['/cart']" [hidden]="lUserRoleName=='DirectSalesSupport' 
+           || lUserRoleName=='Sales' 
+           || lUserRoleName=='CustomerService'">
+                            <i class="fa fa-shopping-cart"></i> {{ 'general.Cart' | translate }} <span
+                                *ngIf="cart_item_cont&&cart_item_cont>0"
+                                class="badge badge-pill badge-danger">{{cart_item_cont}}</span></a>
+                    </li>
+    
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [hidden]="lUserRoleName=='DirectSalesSupport' 
+       || lUserRoleName=='CustomerService' || lUserRoleName=='Sales'">
+                        <a class="nav-link" [routerLink]="['/my-orders']">
+    
+                            <i class="fas fa-shopping-bag"></i>
+                            {{ 'userMenu.MyOrders' | translate }}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" hidden>
+                        <a class="nav-link" [routerLink]="['/coupons']">
+                            <i class="fa fa-ticket-alt"></i> {{ 'reports.coupon' | translate }}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" hidden>
+                        <a class="nav-link" [routerLink]="['/volumes']">
+                            <i class="fa fa-weight"></i> {{ 'reports.volumes' | translate }}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" hidden>
+                        <a class="nav-link" [routerLink]="['/ManagmentRegularTasks']">
+                            <i class="fas fa-tasks">
+    
+                            </i> {{'userMenu.Management' |translate}}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [hidden]="UserType!='RegularClient'">
+                        <a class="nav-link" [routerLink]="['/ManagementRegularTasksForOneCustomer']">
+                            <i class="fas fa-tasks">
+    
+                            </i> {{'userMenu.ManagementOneCustomerByTrader' |translate}}</a>
+                    </li>
+    
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [hidden]="lUserRoleName!='CustomerService'">
+                        <a class="nav-link" [routerLink]="['/CustomerService']">
+                            <i class="fas fa-tasks">
+    
+                            </i> {{'general.CustomerService' |translate}}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [hidden]="lUserRoleName!='DirectSalesSupport'">
+                        <a class="nav-link" [routerLink]="['/sales-support']">
+                            <i class="fas fa-tasks">
+    
+                            </i> {{'general.DirectSalesSupport' |translate}}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [hidden]="lUserRoleName!='Sales'">
+                        <a class="nav-link" [routerLink]="['/ordersplantpaied']">
+                            <i class="fas fa-tasks">
+    
+                            </i> {{'general.SalesSupport' |translate}}</a>
+                    </li>
+    
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [hidden]="lUserRoleName != 'DirectSalesSupport' 
+               ">
+                        <a class="nav-link" [routerLink]="['/products']">
+                            <i class="fal fa-store-alt"></i> {{'general.Manageproducts' |translate}}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [hidden]="lUserRoleName != 'Sales' 
+               ">
+                        <a class="nav-link" [routerLink]="['/products']">
+                            <i class="fas fa-shipping-fast"></i> {{'general.Manageproducts' |translate}}</a>
+                    </li>
+    
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" hidden>
+                        <a class="nav-link" [routerLink]="['/DepositeRCusomer']">
+                            <i class="fas fa-shipping-fast">></i> {{'Customer.Debosite' |translate}}</a>
+                    </li>
+    
+    
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">
+                        <a class="nav-link" [routerLink]="['/AddComplain']">
+                            <i class="far fa-file-alt"></i> {{'Complain.AddComplain' |translate}}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" hidden>
+                        <a class="nav-link" [routerLink]="['/UpdateMasterData']">
+                            <i class="far fa-file-alt"></i> {{'Customer.UpdateMasterData' |translate}}</a>
+                    </li>
+    
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" hidden>
+                        <a class="nav-link" [routerLink]="['/TransportationManagement']">
+                            <i class="fas fa-tasks"></i> {{'transportation.Management' |translate}}</a>
+                    </li>
+    
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" *ngIf="lUserRoleName!=null">
+                        <a class="nav-link" (click)="logout()">
+                            <i class="fas fa-sign-in-alt"></i>
+    
+                            {{ 'userMenu.Logout' | translate | translate }}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" *ngIf="lUserRoleName==null">
+                        <a class="nav-link" (click)="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+    
+                            {{ 'userMenu.Login' | translate | translate }}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" *ngIf="lUserRoleName!=null">
+                        <a class="nav-link">
+    
+                            {{ 'general.Welcome' | translate | translate }}
+                            {{UserName}}
+                        </a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">
+                        <a class="nav-link">
+    
+                            <language></language>
+                        </a>
+                    </li>
+    
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

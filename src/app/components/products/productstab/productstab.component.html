@@ -1,0 +1,40 @@
+
+
+<section class="section-pagetop ">
+    <div class="container clearfix">  
+        <h2 class="title-page"></h2>
+        <!-- <table>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+        </table> -->
+
+        <table class="table table-striped;border-radius: 25px;"
+        
+         *ngIf="lang.currentLanguage==='en-US'"  class="hoverTable">
+            <tbody>
+                <tr>
+                    <!-- <td *ngIf="lang.currentLanguage==='ar-EG'">{{prod.ProductNameAR}}</td> -->
+                    <td *ngFor="let prod of products"
+                      [routerLink]="['/details/',prod.Id]" routerLinkActive="active"
+                     style="color:whitesmoke;text-align:center">{{prod.ProductName}}</td>
+
+                </tr>
+            </tbody>
+        </table> 
+        <table class="table table-striped" *ngIf="lang.currentLanguage==='ar-EG'" class="hoverTable">
+            <tbody>
+                <tr>
+                    <!-- <td *ngIf="lang.currentLanguage==='ar-EG'">{{prod.ProductNameAR}}</td> -->
+                    <td   *ngFor="let prod of products" 
+                     [routerLink]="['/details/',prod.Id]" routerLinkActive="active"
+                    style="color:whitesmoke;text-align:center">{{prod.ProductNameAR}}</td>
+                </tr>
+            </tbody>
+        </table> 
+    </div> 
+    
+</section>

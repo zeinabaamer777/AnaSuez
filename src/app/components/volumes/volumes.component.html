@@ -1,0 +1,109 @@
+<h1 class="btnmarg"> {{'reports.volumes'|translate}}</h1>
+<div class="row">
+    <div class="col-md-12">
+
+        <a class="btn btn-sm btn-primary btnmarg" data-toggle="collapse" href="#collapseExample" role="button"
+            aria-expanded="false" aria-controls="collapseExample">
+            {{'general.filter'|translate}}
+        </a>
+
+        <button (click)="export()" class="btn btn-sm btn-primary btnmarg">
+            {{'general.excelexport'|translate}} 
+        </button>
+        <div class="collapse" id="collapseExample">
+
+
+            <div class="card card-body">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Incoterm </label>
+                        <select [(ngModel)]="selectedInco" id="incoterm" class="form-control">
+                            <option [ngValue]="0">All </option>
+                            <option [ngValue]="k" *ngFor="let k of incoterms">
+                                {{k}}
+                            </option>
+                        </select>
+
+
+
+                        <!-- <label >{{'cart.plant'|translate}} </label>
+                        <select *ngIf="lang.currentLanguage==='ar-EG'" [(ngModel)]="selectedPlants" id="plant"
+                            class="form-control">
+                            <option [ngValue]="0" selected>{{'general.selectPlan'|translate}} </option>
+                            <option [ngValue]="k.PlantCode" *ngFor="let k of plants">
+                                {{k.PlantNameAR}}
+                            </option>
+                        </select>
+    
+                        <select *ngIf="lang.currentLanguage==='en-US'" [(ngModel)]="selectedPlants" id="plant"
+                            class="form-control">
+                            <option [ngValue]="0" selected>{{'general.selectPlan'|translate}} </option>
+                            <option [ngValue]="k.PlantCode" *ngFor="let k of plants">
+                                {{k.PlantName}}
+                            </option>
+                        </select> -->
+
+
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-2">
+                    <button (click)="loadVolumes(1)"
+                        class="btn btn-primary">{{'header.searchPlaceHold'|translate}}</button>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr class="tableHeader">
+                    <td class="tdcolor">{{'reports.MaterialDescription'|translate}}</td>
+                    <td class="tdcolor">{{'reports.Location'|translate}}</td>
+                    <td class="tdcolor">{{'reports.deliveryType'|translate}}</td>
+                    <td class="tdcolor">{{'reports.ContractNumber'|translate}}</td>
+                    <td class="tdcolor">{{'reports.couponNumber'|translate}}</td>
+                    <td class="tdcolor">{{'reports.Price'|translate}}</td>
+                    <td class="tdcolor">{{'reports.DispatchedQty'|translate}}</td>
+                    <td class="tdcolor">{{'reports.FinalInvoiceNumber'|translate}}</td>
+                    <td class="tdcolor">{{'reports.TotalInvoice'|translate}}</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vol of volumes | paginate: { itemsPerPage: pageSize,currentPage: p,totalItems: total }">
+                    <td>{{vol.MaterialDescription}}</td>
+                    <td>{{vol.LocationOfShipTo}}</td>
+                    <td>{{vol.Incoterm}}</td>
+                    <td>{{vol.ContractNumber}}</td>
+                    <td>{{vol.CouponNumber}}</td>
+                    <td>{{vol.CementPerTon}}</td>
+                    <td>{{vol.DispatchedQty}}</td>
+                    <td>{{vol.SalesDocument}}</td>
+                    <td>{{vol.CouponTotalAmount}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="loadVolumes($event)" previousLabel="{{'general.prev'|translate}}"
+            nextLabel="{{'general.next'|translate}}"></pagination-controls>
+    </div>
+
+</div>

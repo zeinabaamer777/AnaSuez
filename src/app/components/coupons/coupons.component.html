@@ -1,0 +1,147 @@
+<h1 class="btnmarg"> {{'reports.coupon'|translate}}</h1>
+<div class="row">
+    <div class="col-md-12">
+
+        <a class="btn btn-sm btn-primary btnmarg" data-toggle="collapse" href="#collapseExample" role="button"
+            aria-expanded="false" aria-controls="collapseExample">
+            {{'general.filter'|translate}}
+        </a>
+
+        <button (click)="export()" class="btn btn-sm btn-primary btnmarg">
+            {{'general.excelexport'|translate}} 
+        </button>
+        <div class="collapse" id="collapseExample">
+
+           
+            <div class="card card-body">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label >Incoterm </label>
+                        <select [(ngModel)]="selectedInco" id="incoterm"
+                            class="form-control">
+                            <option [ngValue]="0">All </option>
+                            <option [ngValue]="k" *ngFor="let k of incoterms">
+                                {{k}}
+                            </option>
+                        </select>
+
+
+
+                        <label >{{'cart.plant'|translate}} </label>
+                        <select *ngIf="lang.currentLanguage==='ar-EG'" [(ngModel)]="selectedPlants" id="plant"
+                            class="form-control">
+                            <option [ngValue]="0" selected>{{'general.selectPlan'|translate}} </option>
+                            <option [ngValue]="k.PlantCode" *ngFor="let k of plants">
+                                {{k.PlantNameAR}}
+                            </option>
+                        </select>
+    
+                        <select *ngIf="lang.currentLanguage==='en-US'" [(ngModel)]="selectedPlants" id="plant"
+                            class="form-control">
+                            <option [ngValue]="0" selected>{{'general.selectPlan'|translate}} </option>
+                            <option [ngValue]="k.PlantCode" *ngFor="let k of plants">
+                                {{k.PlantName}}
+                            </option>
+                        </select>
+                      
+                        <div class="form-group">
+                            <label for="comp_code">From </label>
+                            <input class="form-control" aaDatepicker="directiveOptions"
+                            type="text"
+                            [input]="selectedDateFrom"  [appDateHandler]
+                           
+                            [(ngModel)]="selectedDateFrom" />
+                        </div>
+                        <div class="form-group">
+                            <label for="comp_code">To </label>
+                            <input class="form-control" aaDatepicker="directiveOptions"
+                            type="text"  
+                            [input]="selectedDateTo"  [appDateHandler]
+                            [(ngModel)]="selectedDateTo" />
+                        </div>
+                       
+                    </div>
+               
+                </div>
+               
+          
+             
+                <div class="col-md-2">
+                    <button (click)="filter()" class="btn btn-primary">{{'header.searchPlaceHold'|translate}}</button>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr class="tableHeader">
+                    <td class="tdcolor">{{'reports.company'|translate}}</td>
+                    <td class="tdcolor">{{'reports.plant'|translate}}</td>
+                    <td class="tdcolor">{{'reports.deliveryType'|translate}}</td>
+                    <td class="tdcolor">{{'reports.description'|translate}}</td>
+                    <td class="tdcolor">{{'reports.orderQty'|translate}}</td>
+                    <td class="tdcolor">{{'reports.totalValue'|translate}}</td>
+                    <td class="tdcolor">{{'reports.contractDate'|translate}}</td>
+                    <td class="tdcolor">{{'reports.contractNumber'|translate}}</td>
+                    <td class="tdcolor">{{'reports.couponNumber'|translate}}</td>
+                    <td class="tdcolor">{{'Drivers.Name'|translate}}</td>
+                    <td class="tdcolor">{{'Truck.TruckLicense'|translate}}</td>
+                    <td class="tdcolor">{{'Truck.TrailerLicense'|translate}}</td>
+
+                    <td class="tdcolor">{{'button.Submit'|translate}}</td>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let coupon of coupons | paginate: { itemsPerPage: pageSize,currentPage: p,totalItems: total }">
+                    <td>{{coupon.Company}}</td>
+                    <td *ngIf="lang.currentLanguage==='ar-EG'">{{coupon.PlantNameArabic}}</td>
+                    <td *ngIf="lang.currentLanguage==='en-US'">{{coupon.PlantName}}</td>
+
+                    <td>{{coupon.IncoTerm}}</td>
+                    <td>{{coupon.MaterialDescription}}</td>
+                    <td>{{coupon.CouponQty}}</td>
+                    <td></td>
+                    <td>{{coupon.CreationDate |date:'dd-MM-yyyy'}}</td>
+                    <td>{{coupon.Contract}}</td>
+                    <td>{{coupon.CouponNumber}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button 
+                        type="button" 
+                        class="btn btn-primary btn-block"
+                        (click)="GetDriverById(group.DummyKey,content)"
+                        > {{'button.Submit'|translate}} 
+                          </button>
+                       </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="loadCoupons($event)" previousLabel="{{'general.prev'|translate}}"
+            nextLabel="{{'general.next'|translate}}"></pagination-controls>
+    </div>
+
+</div>
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: black">Loading...</p>
+</ngx-spinner>

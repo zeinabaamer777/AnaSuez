@@ -1,0 +1,80 @@
+
+<!-- <table   > -->
+    <!-- <caption>Monthly savings</caption> -->
+    <!-- <tr class="row;  border-bottom: 1px solid #ddd;  border: 1px solid black;">
+        <th *ngFor="let status of orerStatus"   
+        class="border-bottom: 1px solid #ddd;  border: 1px solid black;">   -->
+            <!-- <select   
+                id="orerStatus"
+                (change)="getOrerStatus($event)"
+                class="form-control">
+                <option hidden [value]="" selected>
+                     {{'OrderStatus.ChooseStatus' | translate}}</option>
+                <option [ngValue]="status.Id" *ngFor="let status of orerStatus">
+                    {{status.StatusName}}
+                </option>
+            </select> -->
+        <!-- </th> -->
+        <table class="mt-4">
+            <th>
+                <div class="form-group" *ngIf="lang.currentLanguage==='en-US'">
+                    <select   
+                        (change)="getStatus($event)"
+                        id="orerStatus"
+                        class="form-control">
+                        <option hidden [value]="" selected>{{'OrderStatus.ChooseStatus' | translate}}</option>
+                        <option [ngValue]="k.Id" *ngFor="let k of orerStatus">
+                            {{k.StatusName}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group" *ngIf="lang.currentLanguage==='ar-EG'">
+                    <select   
+                        (change)="getStatus($event)"
+                        id="orerStatus"
+                        class="form-control">
+                        <option hidden [value]="" selected>{{'OrderStatus.ChooseStatus' | translate}}</option>
+                        <option [ngValue]="k.Id" *ngFor="let k of orerStatus">
+                            {{k.StatusNameAR}}
+                        </option>
+                    </select>
+                </div>
+            </th>
+            <th>{{'general.DateFrom' | translate}}</th>
+            <th>
+                <input  
+                    type="date"
+                    name="DateFrom"
+                    [ngModel]="DateFrom"
+                    (ngModelChange)="DateFrom = $event"
+
+                    class="form-control" id="DateFrom">
+            </th><th>{{'general.DateTo' | translate}}</th>
+            <th>
+                <input  
+                    type="date"
+                    name="DateTo"
+                    [ngModel]="DateTo"
+                    
+                    (ngModelChange)="DateTo = $event"
+                    class="form-control" id="DateTo">
+            </th>
+            <th>
+                <button type="button" class="btn btn-primary"  (click)="GetOrder()">
+                    {{'header.searchPlaceHold' | translate}}
+                </button>
+            </th>
+        </table>
+       
+       
+       
+    <!-- </tr>
+ </table> -->
+ <!-- <input [(ngModel)]="selectStatus"  *ngIf="lang.currentLanguage==='en-US'"
+ type="radio" value="{{status.Id}}" 
+ name="{{status.StatusName}}"> {{status.StatusName}}
+
+ <input [(ngModel)]="selectStatus" *ngIf="lang.currentLanguage==='ar-EG'" 
+ type="radio" value="{{status.Id}}" 
+ name="{{status.StatusName}}"> 
+ {{status.StatusNameAR}} -->

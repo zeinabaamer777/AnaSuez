@@ -1,0 +1,143 @@
+
+<div class="table-container">
+    <table class="table table-striped; mt-2">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col" >{{'order.DestinationTarget'|translate}}      <span style="color: red;">*</span></th>
+            <th scope="col" *ngIf="lUserRoleName!=null">{{'order.ContactName'|translate}} <span style="color: red;">*</span></th>
+            <th scope="col" *ngIf="lUserRoleName!=null">{{'register.address'|translate}} <span style="color: red;">*</span></th>
+            <th scope="col" *ngIf="lUserRoleName!=null">{{'order.MobileNumber'|translate}} <span style="color: red;">*</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td  style="width: 25%;">                           
+                 <orderdestination 
+                 (selectedValueId)="loadProductsDestination_($event)" 
+                 [destinationId]="DestinationId"
+                 (change)="emptydata()">
+                    <!-- (selectedValueId)="updateDest($event)" -->
+                 </orderdestination>
+            </td>
+            <td >
+                <input type="text" class="form-control" id="ContactName" *ngIf="lUserRoleName!=null"
+                [(ngModel)]="ContactOrder">
+            </td>
+            <td *ngIf="lUserRoleName!=null"><input type="text" class="form-control" id="Address"
+                [(ngModel)]="Address"></td>
+            <td *ngIf="lUserRoleName!=null"><input type="text" class="form-control" id="MobileNum"
+                    [(ngModel)]="MobileOrder"></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+  <div class="row">
+<div class="col-md-9">
+   
+    <div *ngFor="let prod of productsVm  
+        | paginate: { itemsPerPage: pageSize,currentPage: p,totalItems: total } ;let i = index">
+        <article class="card card-product">
+            <div class="card-body">
+                <div class="row">
+                    <aside class="col-sm-3">
+                        <div class="img-wrap"><img src="{{img_url}}/{{prod.Image}}"></div>
+                    </aside>
+                    <article class="col-sm-4">
+                        <h4 *ngIf="lang.currentLanguage==='ar-EG'" class="title">{{prod.ProductNameAR}}</h4>
+                        <h4 *ngIf="lang.currentLanguage==='en-US'" class="title">{{prod.ProductName}}</h4>
+
+                        <div class="rating-wrap mb-2">
+                            <div *ngIf="lang.currentLanguage==='ar-EG'" class="label-rating">{{prod.ProductLabelAR}}</div>
+                            <div *ngIf="lang.currentLanguage==='en-US'" class="label-rating">{{prod.ProductLabel}}</div>
+                        </div>
+
+                        <p *ngIf="lang.currentLanguage==='ar-EG'" innerHTML=" {{prod.ShortDescriptionAR}}">
+
+                        </p>
+
+
+                        <p *ngIf="lang.currentLanguage==='en-US'" innerHTML=" {{prod.ShortDescription}}">
+
+                        </p>
+
+
+
+                        <!--
+                        <dl class="dlist-align-custom">
+                            <dt>Soundness (expansion) mm</dt>
+                            <dd>≤ 10</dd>
+                        </dl> 
+                        <dl class="dlist-align-custom">
+                            <dt>Compressive strength 2D (Mpa)</dt>
+                            <dd>≥ 10</dd>
+                        </dl> -->
+
+                    </article>
+                    <aside class="col-sm-2 border-left">
+                        <div class="action-wrap">
+                            <div class="price-wrap h4">
+                                <span class="price">{{'general.qryTon'|translate}}
+                                </span>
+                            </div>
+                            <br>
+                            <p>
+                                <input type="number" class="form-control" OnlyNumber="true"
+                                id="payreported" name="qty-{{i}}" value="5" min="5"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                step="1"
+                                #qty>
+
+                            </p>
+                        </div>
+                    </aside>
+                    
+                    <aside class="col-sm-3 border-left">
+                        <div class="action-wrap">
+                            <div class="price-wrap h4">
+                                <span class="price"> {{'general.currencyEGP'|translate}} 
+                                    {{prod.Price}}
+                                    /
+                                    {{'general.qryTon'|translate}}
+                                </span>
+                            </div>
+                            <br>
+                            <p>
+                                <button (click)="addToCart(prod.Id,qty.value)"
+                                class="btn btn-primary simpleMargin" >
+                                    {{'general.addToCart'|translate}} </button>
+
+                                <!-- <button (click)="addToCart_(prod.Id,payreported.value)" class="btn btn-primary simpleMargin">
+                                        {{'general.addToCart'|translate}} </button> -->
+
+                                <button class="btn btn-secondary" [routerLink]="['/details/',prod.Id]">
+                                    {{'general.details'|translate}} </button>
+                            </p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+<div class="col-md-3 sides-images">
+    <figure>
+        <img src="assets/images/s1.jpg">
+    </figure>
+      
+    <figure>
+        <img src="assets/images/s2.jpg">
+    </figure>
+    <figure>
+        <img src="assets/images/s3.jpg">   
+    </figure>
+   <!-- <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+   <a href="#" class="google"><i class="fa fa-google"></i></a> 
+   <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+   <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>  -->
+</div> 
+</div>
+
+
+
+<!-- <pagination-controls (pageChange)="updateProduct($event)"  previousLabel="{{'general.prev'|translate}}" nextLabel="{{'general.next'|translate}}"></pagination-controls> -->

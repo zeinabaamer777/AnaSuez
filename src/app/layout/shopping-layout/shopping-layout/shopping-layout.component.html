@@ -1,0 +1,70 @@
+
+<app-header></app-header>
+<!-- <div style="width: 100%;background-color: green;"> -->
+  
+    <!-- <productstab></productstab> -->
+
+ <!-- <table class="table table-striped">
+            <tbody>
+                <tr *ngFor="let prod of products">
+                    <td *ngIf="lang.currentLanguage==='ar-EG'">{{prod.ProductNameAR}}</td>
+                    <td *ngIf="lang.currentLanguage==='en-US'">{{prod.ProductName}}</td>
+                </tr>
+            </tbody>
+        </table>-->
+
+<section class="section-content bg">
+  
+    <div class="container py-10">
+        <div class="row">
+            <!-- <aside class="col-sm-3">
+                <app-sidebar></app-sidebar>
+            </aside> -->
+            <!-- <div class="sidenav">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#clients">Clients</a>
+                <a href="#contact">Contact</a>
+              </div> -->
+            <main class="col-sm-12">
+                <router-outlet></router-outlet>
+            </main>
+        </div>
+
+    </div>
+
+</section>
+<main id="main">
+  <!-- ======= Our Clients Section ======= -->
+  <section id="clients" class="py-5" data-aos="zoom-in">
+    <header class="section-header">
+      <h2 class="text-center mb-5">
+        {{ 'message.OutProject' | translate  }}
+
+      </h2>
+    </header>
+    <!-- <app-carousel-holder></app-carousel-holder> -->
+    <app-carousel-slick-holder></app-carousel-slick-holder>
+  </section><!-- End Our Clients Section -->
+</main>
+<div class="icon-bar"  >
+     <!-- <img src="assets/images/s1.jpg" style="width: 30%;height: 60%;"> <br> <br> <br>
+    <img src="assets/images/s2.jpg" style="width: 30%;height: 60%;"> <br> <br> <br>
+
+    <img src="assets/images/s3.jpg" style="width: 30%;height: 60%;">   -->
+
+    <!-- <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+    <a href="#" class="google"><i class="fa fa-google"></i></a> 
+    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+    <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>  -->
+</div> 
+<!-- <section class="section-name bg-white padding-y">
+    <div class="container">
+      
+
+    </div>
+</section> -->
+
+<footer class="section-footer bg-secondary">
+    <app-footer></app-footer>
+</footer>

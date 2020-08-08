@@ -1,0 +1,76 @@
+.card {
+    border-radius: 16px;
+    width: 90%;
+    margin: auto;
+    border: none;
+}
+@media (min-width: 991px) {
+    /* .card {
+        max-height: 500px;
+        height: 360px;
+   } */
+}
+.card .card-title {
+    text-align: left;
+    text-transform: capitalize;
+    margin: 0;
+}
+.card .card-title h6 {
+    margin: 20px 0;
+}
+.card .card-body {
+    padding: 0;
+}
+.card .card-body p {
+    font-size: 15px;
+}
+.card .card-footer {
+    background-color: transparent;
+    border-top: none;
+}
+.card .card-icon img {
+    height: 60px;
+}
+.slick-slide {
+    transition: all ease-in-out 0.3s;
+    opacity: 0;
+}
+.slick-active {
+    cursor: pointer;
+    opacity: 0.8;
+    /* background: #fff; */
+    border-radius: 15px;
+    /* box-shadow: 0px 0px 38px -5px rgba(126, 118, 249, 0.16); */
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* .slick-dots li button{
+    background-color: #00a44f;
+} */
+.slick-dots li.slick-active button{
+    background-color: #00a44f !important;
+}
+.slick-dots li.slick-active button:before{
+    color:#00a44f;
+}
+::ng-deep .slick-dots li:hover button:before{
+    color: #00a44f !important;
+}
+::ng-deep .slick-dots li.slick-active button:before{
+    color: #00a44f !important;
+}
+::ng-deep .slick-slider{
+    direction: ltr !important;
+}
+::ng-deep .slick-slide {
+    float: left !important;
+}

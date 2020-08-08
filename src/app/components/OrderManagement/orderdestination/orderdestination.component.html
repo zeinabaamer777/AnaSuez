@@ -1,0 +1,22 @@
+<div class="form-group" *ngIf="lang.currentLanguage==='en-US'">
+    <select  
+        id="users" 
+        class="form-control" (change)="selectedValue($event)" 
+        [(ngModel)]='destinationId'>
+        <option hidden [value]="" selected>Select Target Destination </option>
+        <option [ngValue]="k.Id" *ngFor="let k of destination" >
+            {{k.NameEn}}
+        </option>
+    </select>
+</div>
+
+<div class="form-group" *ngIf="lang.currentLanguage==='ar-EG'">
+        <select   
+            id="users" class="form-control" (change)="selectedValue($event)"  [(ngModel)]='destinationId'>
+            <option hidden [value]="" selected>أختر جهه التوصيل </option>
+            <option [ngValue]="k.Id" *ngFor="let k of destination" >
+                {{k.NameAr}}
+            </option>
+        </select>
+    </div>
+
