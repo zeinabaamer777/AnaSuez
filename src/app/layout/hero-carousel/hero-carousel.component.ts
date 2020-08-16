@@ -16,7 +16,7 @@ export class HeroCarouselComponent implements OnInit {
     config.pauseOnHover = false;
     config.showNavigationIndicators = false
   }
-  Images = ['../assets/images/carousel1.png', '../assets/images/carousel2.png'];  
+  Images = ['../assets/images/carousel-2.png', '../assets/images/carousel-3.jpg'];  
   SlideOptions = { items: 1, dots: true, nav: true };  
   CarouselOptions = { items: 2, dots: true, nav: true };  
 

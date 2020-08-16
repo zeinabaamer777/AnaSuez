@@ -8,8 +8,8 @@ interval="6000"
 [activeId]="'slideTwo'"
 >
     <ng-template ngbSlide id="slideOne">
-        <div class="picsum-img-wrapper">
-            <img [src]="Images[0]"  width="100%" alt="Random first slide">
+        <div class="picsum-img-wrapper" [ngStyle]="{background: 'url(/img/' + Images[0] + ')','background-size': '100% auto','background-repeat': 'no-repeat', width: '100%', height: '70vh'}">
+            <!-- <img [src]="Images[0]"  width="100%" alt="Random first slide"> -->
         </div>
         <div class="carousel-caption">
             <h3 class="animate__animated animate__fadeInDown">
@@ -23,8 +23,8 @@ interval="6000"
         </div>
     </ng-template>
     <ng-template ngbSlide id="slideTwo">
-        <div class="picsum-img-wrapper">
-            <img [src]="Images[1]" width="100%" alt="Random second slide">
+        <div class="picsum-img-wrapper" [ngStyle]="{background: 'url(/img/' + Images[1] + ')','background-size': '100%','background-repeat': 'no-repeat', width: '100%', height: '70vh'}">
+            <!-- <img [src]="Images[1]" width="100%" alt="Random second slide"> -->
         </div>
         <div class="carousel-caption">
             <h3 class="animate__animated animate__fadeInDown">

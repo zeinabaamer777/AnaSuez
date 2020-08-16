@@ -5,6 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Language } from './config/language';
 import { NotificationServiceService } from './services/notification-service.service';
 import { CartService } from './services/cart.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,7 +30,7 @@ export class AppComponent implements OnInit{
   }
   title = 'AnaSuezFE';
   cssUrl: string;
-  constructor(private _cartService:CartService,private _notificatoinService: NotificationServiceService,@Inject(DOCUMENT) private document: Document,private lang:Language,public sanitizer: DomSanitizer, private translate: TranslateService) {
+  constructor(private router: Router ,private _cartService:CartService,private _notificatoinService: NotificationServiceService,@Inject(DOCUMENT) private document: Document,private lang:Language,public sanitizer: DomSanitizer, private translate: TranslateService) {
     debugger;
     translate.setDefaultLang('en-US');
     let l_cul=localStorage.getItem('culture');
@@ -92,4 +93,8 @@ export class AppComponent implements OnInit{
     
     
   }
+  get isDetails(){
+    return this.router.url.indexOf('product-details') >= 0; 
+  }
+
 }

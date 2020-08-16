@@ -5,16 +5,25 @@
         (init)="slickInit($event)"
         (breakpoint)="breakpoint($event)"
         (afterChange)="afterChange($event)"
-        (beforeChange)="beforeChange($event)">
+        (beforeChange)="beforeChange($event)"
+        [class]="isDetails ? 'white-style' : '' ">
             <div ngxSlickItem *ngFor="let slideritem of sliderItems" class="slide">
-                <div class="card shadow-sm p-3 mb-5 bg-white">
+                <div class="card shadow-sm mb-3">
                     <img class="card-img-top"  [src]="slideritem.src" [alt]="slideritem.alt" >
-                    <div class="card-title">
-                        <h6 class="text-center">
-                        {{ slideritem.title }}
-                        </h6>
-                    </div>
+                    
                 </div>
+                <div class="card-title"  *ngIf="lang.currentLanguage==='en-US'">
+                    <h6 class="text-center">
+                    {{ slideritem.title }}
+                    </h6>
+                </div>
+
+                <!-- <div class="card-title"  *ngIf="lang.currentLanguage==='ar-EG'">
+                    <h6 class="text-center">
+                    {{ slideritem.title }}
+                    </h6>
+                </div> -->
+
             </div>
         </ngx-slick-carousel>
 </div>

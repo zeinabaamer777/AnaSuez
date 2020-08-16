@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductTypeService } from 'src/app/services/product-type.service';
 import { ProductTypeModel } from 'src/app/models/ProductTypeModel';
@@ -16,7 +16,7 @@ import { CookieService } from 'src/app/services/cookie.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+ 
   searchKeyWord: string = "";
   selectedPlant: number = 0;
   plants: PLantModel[];
@@ -30,7 +30,8 @@ export class HeaderComponent implements OnInit {
     private _notificatoinService: NotificationServiceService, 
     private router: Router, private _productService: ProductService,
      private _plantService: PlantService, private lang: Language,
-     private cookies: CookieService) {
+     private cookies: CookieService,
+     private activatedRoute: ActivatedRoute) {
     this.subscription = this._notificatoinService.getCartCount().subscribe(cnt => {
       this.cart_item_cont = cnt.cnt;
     });
@@ -66,6 +67,9 @@ export class HeaderComponent implements OnInit {
     // this._plantService.loadPlants().subscribe((res) => {
     //   this.plants = res.Plants as PLantModel[];
     // });
+  }
+  get isDetails(){
+    return this.router.url.indexOf('product-details') >= 0; 
   }
 
 }

@@ -38,3 +38,8 @@
         margin-bottom: 0;
     }
 }
+.footer-links{
+    position: relative;
+    display: block;
+    color: #fff;
+}

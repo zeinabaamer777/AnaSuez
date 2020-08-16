@@ -63,7 +63,7 @@ export const routes: Routes = [
         path: '',
         component: ShoppingLayoutComponent,
         children: [
-           { path: 'details/:id', component: ProductDetailsComponent },
+           { path: 'product-details/:id', component: ProductDetailsComponent },
 
             { path: 'shopping', component: ShoppingComponent },
             { path: 'my-orders', component: MyOrdersComponent },

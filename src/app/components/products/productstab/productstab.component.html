@@ -19,7 +19,7 @@
                 <tr>
                     <!-- <td *ngIf="lang.currentLanguage==='ar-EG'">{{prod.ProductNameAR}}</td> -->
                     <td *ngFor="let prod of products"
-                      [routerLink]="['/details/',prod.Id]" routerLinkActive="active"
+                      [routerLink]="['/product-details/',prod.Id]" routerLinkActive="active"
                      style="color:whitesmoke;text-align:center">{{prod.ProductName}}</td>
 
                 </tr>
@@ -30,7 +30,7 @@
                 <tr>
                     <!-- <td *ngIf="lang.currentLanguage==='ar-EG'">{{prod.ProductNameAR}}</td> -->
                     <td   *ngFor="let prod of products" 
-                     [routerLink]="['/details/',prod.Id]" routerLinkActive="active"
+                     [routerLink]="['/product-details/',prod.Id]" routerLinkActive="active"
                     style="color:whitesmoke;text-align:center">{{prod.ProductNameAR}}</td>
                 </tr>
             </tbody>

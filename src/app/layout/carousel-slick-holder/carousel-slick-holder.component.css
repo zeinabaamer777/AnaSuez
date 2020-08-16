@@ -1,8 +1,10 @@
 .card {
-    border-radius: 16px;
+    border-radius: 2px;
     width: 90%;
     margin: auto;
     border: none;
+    padding: 2px;
+    height: 260px
 }
 @media (min-width: 991px) {
     /* .card {
@@ -28,8 +30,23 @@
     background-color: transparent;
     border-top: none;
 }
+
 .card .card-icon img {
     height: 60px;
+    border-radius: 2px;
+}
+/* .slick-slide .card .card-title h6{
+    color: whitesmoke;
+} */
+.white-style .card-title{
+    color: whitesmoke;
+}
+.slick-slide img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    overflow: hidden;
 }
 .slick-slide {
     transition: all ease-in-out 0.3s;
@@ -62,6 +79,18 @@
 .slick-dots li.slick-active button:before{
     color:#00a44f;
 }
+.slick-active{
+    opacity: 1;
+}
+::ng-deep .slick-dots li button{
+    width: 30px;
+    height: 30px;
+}
+::ng-deep .white-style .slick-dots li button:before{
+    color: #ffffff !important;
+    opacity: 0.75;
+}
+
 ::ng-deep .slick-dots li:hover button:before{
     color: #00a44f !important;
 }

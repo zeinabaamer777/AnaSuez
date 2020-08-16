@@ -10,26 +10,27 @@
   .zoom:hover {
     transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
-  .gallery-wrap .img-big-wrap img{
+  /* .gallery-wrap .img-big-wrap img{
       width: 100%;
       height: 400px;
-  }
-@media(max-width: 991px){
+  } */
+/* @media(max-width: 991px){
   .gallery-wrap .img-big-wrap img{
     height: 300px;
     width: 100%;
   }
     
-}
-@media(max-width:576px){
+} */
+/* @media(max-width:576px){
   .gallery-wrap .img-big-wrap img{
     height: 250px;
     width: 80%;
   }
-}
+} */
 
 .sides-images figure{
   margin-bottom: 10px;
+  border: 2px solid #ffffff;
 }
 
 .sides-images figure img{

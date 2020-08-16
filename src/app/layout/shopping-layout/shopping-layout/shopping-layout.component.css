@@ -107,3 +107,19 @@ body {margin:0;height:2000px;}
 .section-header {
   margin-bottom: 20px;
 }
+.white-style{
+  color: white;
+  text-align: center;
+}
+.section-header h2{
+  text-align: center;
+}
+.clients-head {
+  text-align: center;
+}
+#clients{
+  background-color: #e9ecef;
+}
+.transparent-style{
+  background-color: transparent !important;
+}

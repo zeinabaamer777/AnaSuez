@@ -1,4 +1,5 @@
-
+<div class="shopping-layout-content">
+    
 <app-header></app-header>
 <!-- <div style="width: 100%;background-color: green;"> -->
   
@@ -13,7 +14,7 @@
             </tbody>
         </table>-->
 
-<section class="section-content bg">
+<section class="section-content">
   
     <div class="container py-10">
         <div class="row">
@@ -36,11 +37,10 @@
 </section>
 <main id="main">
   <!-- ======= Our Clients Section ======= -->
-  <section id="clients" class="py-5" data-aos="zoom-in">
+  <section id="clients" class="py-5" data-aos="zoom-in"  [class]="isDetails ? 'transparent-style py-5' : 'py-5' ">
     <header class="section-header">
-      <h2 class="text-center mb-5">
+      <h2 class="clients-head text-center mb-5" [class]="isDetails ? 'white-style' : '' ">
         {{ 'message.OutProject' | translate  }}
-
       </h2>
     </header>
     <!-- <app-carousel-holder></app-carousel-holder> -->
@@ -68,3 +68,4 @@
 <footer class="section-footer bg-secondary">
     <app-footer></app-footer>
 </footer>
+</div>

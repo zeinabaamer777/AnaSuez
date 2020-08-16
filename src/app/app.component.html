@@ -5,6 +5,6 @@
     <a style="cursor: pointer" (click)="loadStyle('ar-EG')">اللغة العربية</a>
 </div> -->
 
-<div *ngIf="current_culture!=''">
+<div *ngIf="current_culture!=''" [class]="isDetails ? 'background-html' : '' ">
     <router-outlet></router-outlet>
 </div>

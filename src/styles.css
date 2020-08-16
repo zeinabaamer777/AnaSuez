@@ -21,4 +21,25 @@
 .activeTab{
     background-color: rgb(160, 47, 47);
   }
-  html { background-image: url(./assets/images/carousel2.png)}
+
+  .background-html { 
+      background-image: url(./assets/images/big-html-back_cropped.png);
+      background-size: cover;
+      display: block;
+    position: relative;
+    }
+    .background-html::after {
+        content: "";
+        background: rgba(0, 0, 0, 0.13);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+    .background-html > * {
+        z-index: 10;
+        position: relative;
+        display: block;
+    }
