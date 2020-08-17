@@ -6,6 +6,7 @@ import { Language } from './config/language';
 import { NotificationServiceService } from './services/notification-service.service';
 import { CartService } from './services/cart.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +14,31 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit{
   current_culture:string='';
+  //#region coockies of the website
+  cookieMessage: string = 'This website uses cookies to ensure you get the best experience on our website.';
+  cookieDismiss: string = 'Got it';
+  cookieLinkText: string = 'learn more';
   ngOnInit(): void {
+    let cc = window as any;
+       cc.cookieconsent.initialise({
+         palette: {
+           popup: {
+             background: "#164969"
+           },
+           button: {
+             background: "#ffe000",
+             text: "#164969"
+           }
+         },
+         theme: "classic",
+         content: {
+           message: this.cookieMessage,
+           dismiss: this.cookieDismiss,
+           link: this.cookieLinkText
+         }
+       });
+       //#region 
+
   //   this.useLanguage('en-US');
   //   this.loadStyle('en-US');
   //  let culture=localStorage.getItem('culture');

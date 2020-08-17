@@ -1,11 +1,7 @@
-<div class="container">
+<div class="slider-elements">
     <ngx-slick-carousel class="carousel" 
         #slickModal="slick-carousel" 
         [config]="slideConfig" 
-        (init)="slickInit($event)"
-        (breakpoint)="breakpoint($event)"
-        (afterChange)="afterChange($event)"
-        (beforeChange)="beforeChange($event)"
         [class]="isDetails ? 'white-style' : '' ">
             <div ngxSlickItem *ngFor="let slideritem of sliderItems" class="slide">
                 <div class="card shadow-sm mb-3">

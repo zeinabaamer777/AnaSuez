@@ -203,5 +203,12 @@
   "reports.statistics":"Statistics",
 
   "charts.monthVolume":"Month Vs previous month",
-  "charts.yearsVolume":"Year Vs Year N-1"
+  "charts.yearsVolume":"Year Vs Year N-1",
+  "products.newCairoHousingEn" : "New Cairo Housing",
+  "products.newDamitaHousingEn" : "New Damita Housing",
+  "products.newMansouraHousingEn" : "NEW MANSOURA HOUSING",
+  "products.alGalalaMountainEn" : "AL GALALA MOUNTAIN",
+  "products.cathedralOfNativityEn" : "CATHEDRAL OF NATIVITY",
+  "products.elOronfilHousingEn" : "EL ORONFIL HOUSING",
+  "products.newAlaminCityEn" : "NEW ALAMIN CITY"
   }

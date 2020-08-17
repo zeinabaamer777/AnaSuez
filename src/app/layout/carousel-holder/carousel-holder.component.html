@@ -1,18 +1,22 @@
-<div class="container py-5">
-    <div class="owl-carousel-slider">
-        <owl-carousel-o [options]="customOptions">
+
+    <div class="slider-elements">
+        <owl-carousel-o [options]="customOptions" #owlCar>
  
-            <ng-container *ngFor="let slide of slides">
-              <ng-template carouselSlide [id]="slide.id">
+            <ng-container *ngFor="let slideritem of sliderItems">
+              <ng-template carouselSlide [id]="slideritem.id">
                 
-                <div class="slider">
-                    <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title">
-                    <h5 class="text-center">{{slide.title}}</h5>
-             
-                  </div><!-- /.carousel-item team-member -->
+                <div class="card shadow-sm mb-3 element">
+                  <img class="card-img-top"  [src]="slideritem.src" [alt]="slideritem.alt" >
+                  
+              </div>
+              <div class="card-title">
+                  <h6 class="text-center">
+                  {{ slideritem.title }}
+                  </h6>
+              </div>
               </ng-template>
             </ng-container>
      
           </owl-carousel-o>
+          
     </div>
-</div>

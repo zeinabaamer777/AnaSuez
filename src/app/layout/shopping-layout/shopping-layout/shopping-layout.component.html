@@ -14,39 +14,44 @@
             </tbody>
         </table>-->
 
-<section class="section-content">
+<section [class]="isDetails ? 'wrapper-entire-content-after' : 'wrapper-entire-content' ">
+    <section class="section-content">
   
-    <div class="container py-10">
-        <div class="row">
-            <!-- <aside class="col-sm-3">
-                <app-sidebar></app-sidebar>
-            </aside> -->
-            <!-- <div class="sidenav">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#clients">Clients</a>
-                <a href="#contact">Contact</a>
-              </div> -->
-            <main class="col-sm-12">
-                <router-outlet></router-outlet>
-            </main>
+        <div class="container py-10">
+            <div class="row">
+                <!-- <aside class="col-sm-3">
+                    <app-sidebar></app-sidebar>
+                </aside> -->
+                <!-- <div class="sidenav">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#clients">Clients</a>
+                    <a href="#contact">Contact</a>
+                  </div> -->
+                <main class="col-sm-12">
+                    <router-outlet></router-outlet>
+                </main>
+            </div>
+    
         </div>
-
-    </div>
-
+    
+    </section>
+    <main id="main">
+      <!-- ======= Our Clients Section ======= -->
+      <section id="clients" class="py-5" data-aos="zoom-in"  [class]="isDetails ? 'transparent-style py-5' : 'py-5' ">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="clients-head text-center mb-5" [class]="isDetails ? 'white-style' : '' ">
+                  {{ 'message.OutProject' | translate  }}
+                </h2>
+              </div>
+              <app-carousel-holder></app-carousel-holder>
+            <!-- <app-carousel-slick-holder></app-carousel-slick-holder>  -->
+        </div>
+      
+      </section><!-- End Our Clients Section -->
+    </main>
 </section>
-<main id="main">
-  <!-- ======= Our Clients Section ======= -->
-  <section id="clients" class="py-5" data-aos="zoom-in"  [class]="isDetails ? 'transparent-style py-5' : 'py-5' ">
-    <header class="section-header">
-      <h2 class="clients-head text-center mb-5" [class]="isDetails ? 'white-style' : '' ">
-        {{ 'message.OutProject' | translate  }}
-      </h2>
-    </header>
-    <!-- <app-carousel-holder></app-carousel-holder> -->
-    <app-carousel-slick-holder></app-carousel-slick-holder>
-  </section><!-- End Our Clients Section -->
-</main>
 <div class="icon-bar"  >
      <!-- <img src="assets/images/s1.jpg" style="width: 30%;height: 60%;"> <br> <br> <br>
     <img src="assets/images/s2.jpg" style="width: 30%;height: 60%;"> <br> <br> <br>

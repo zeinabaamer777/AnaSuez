@@ -1,40 +1,34 @@
-.card {
+.slider-elements{
+    width: 100%;
+    min-height: 270px;
+    position: relative;
+  }
+  .card {
+    position: relative;
     border-radius: 2px;
-    width: 90%;
     margin: auto;
     border: none;
     padding: 2px;
-    height: 260px
-}
-@media (min-width: 991px) {
-    /* .card {
-        max-height: 500px;
-        height: 360px;
-   } */
-}
-.card .card-title {
+    min-height: 260px;
+    /* height: 260px; */
+    background-color: #fff;
+    margin-bottom: 0;
+  }
+  .card .card-title {
     text-align: left;
     text-transform: capitalize;
     margin: 0;
-}
-.card .card-title h6 {
+  }
+  .card .card-title h6 {
     margin: 20px 0;
-}
-.card .card-body {
+  }
+  .card .card-body {
     padding: 0;
-}
-.card .card-body p {
+  }
+  .card .card-body p {
     font-size: 15px;
-}
-.card .card-footer {
-    background-color: transparent;
-    border-top: none;
-}
-
-.card .card-icon img {
-    height: 60px;
-    border-radius: 2px;
-}
+  }
+  
 /* .slick-slide .card .card-title h6{
     color: whitesmoke;
 } */
@@ -102,4 +96,7 @@
 }
 ::ng-deep .slick-slide {
     float: left !important;
+}
+.carousel{
+    z-index: 9999;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-
+import { Language } from 'src/app/config/language';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-carousel-holder',
   templateUrl: './carousel-holder.component.html',
@@ -8,48 +9,66 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class CarouselHolderComponent implements OnInit {
 
-  constructor() { }
-  slides = [
+  constructor(private router: Router ,private lang: Language) { }
+  sliderItems = [
     {
-      id: 1,
-      src : '../assets/img/clients/client-1.png',
-      alt: 'client 1',
-      title: 'client 1'
+      id: '1',
+      src : '../assets/images/projects/AL GALALA MOUNTAIN.png',
+      alt: 'AL GALALA MOUNTAIN',
+      title: 'AL GALALA MOUNTAIN'
     },
     {
-      id: 2,
-      src : '../assets/img/clients/client-2.png',
-      alt: 'client 2',
-      title: 'client 2'
+      id: '2',
+      src : '../assets/images/projects/CATHEDRAL OF NATIVITY.png',
+      alt: 'CATHEDRAL OF NATIVITY',
+      title: 'CATHEDRAL OF NATIVITY'
     },
     {
-      id: 3,
-      src : '../assets/img/clients/client-3.png',
-      alt: 'client 3',
-      title: 'client 3'
+      id: '3',
+      src : '../assets/images/projects/EL ORONFIL HOUSING.png',
+      alt: 'EL ORONFIL HOUSING',
+      title: 'EL ORONFIL HOUSING'
     },
     {
-      id: 4,
-      src : '../assets/img/clients/client-4.png',
-      alt: 'client 4',
-      title: 'client 4'
-    }];
+      id: '4',
+      src : '../assets/images/projects/NEW ALAMIN CITY.png',
+      alt: 'NEW ALAMIN CITY',
+      title: 'NEW ALAMIN CITY'
+    },
+    {
+      id: '5',
+      src : '../assets/images/projects/NEW CAIRO HOUSING.png',
+      alt: 'NEW CAIRO HOUSING',
+      title: 'NEW CAIRO HOUSING'
+    },
+    {
+      id: '6',
+      src : '../assets/images/projects/NEW DAMIETTA HOUSING.png',
+      alt: 'NEW DAMIETTA HOUSING',
+      title: 'NEW DAMIETTA HOUSING'
+    },
+    {
+      id: '7',
+      src : '../assets/images/projects/NEW MANSOURA HOUSING.png',
+      alt: 'NEW MANSOURA HOUSING',
+      title: 'NEW MANSOURA HOUSING'
+    }
+  ];
 
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
+    mouseDrag: true,
     touchDrag: false,
     pullDrag: false,
     dots: true,
+    autoplay:true,
     navSpeed: 700,
-    navText: [ '<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right></i>"' ],
-    autoplay: true,
-    freeDrag: true,
+    navText: ['',''],
     responsive: {
       0: {
         items: 1
       },
-      400: {
+      500: {
         items: 2
       },
       740: {
@@ -59,11 +78,14 @@ export class CarouselHolderComponent implements OnInit {
         items: 3
       }
     },
-    nav: true
+    nav: false
   }
 
 
   ngOnInit() {
+  }
+  get isDetails(){
+    return this.router.url.indexOf('product-details') >= 0; 
   }
 
 }

@@ -85,8 +85,9 @@
     height: 90px;
     padding: 0;
     /* background-color: rgba(45,186,30, .6); */
-    background-color:rgba(0,130,56, 80%);
+    background-color:rgba(0,130,56, .8);
   }
+
   @media(max-width: 991px){
 
     #header{

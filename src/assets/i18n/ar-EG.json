@@ -256,6 +256,13 @@
   "Drivers.MobileNumber":"رقم التليفون",
   "Truck.TruckLicense":"رخصة العربة",
   "Truck.TrailerLicense":"رخصه المقطورة",
-   "Truck.ValidationLicense":"من فضلك أدخل رخصة للعربه أ, المقطورة"
-  
+   "Truck.ValidationLicense":"من فضلك أدخل رخصة للعربه أ, المقطورة",
+
+   "products.newCairoHousingAr" : "إسكان القاهرة الجديدة",
+  "products.newDamitaHousingAr" : "إسكان دمياط الجديدة",
+   "products.newMansouraHousingAr" : "إسكان المنصورة الجديدة",
+   "products.alGalalaMountainAr" : "جبل الجلالة",
+   "products.cathedralOfNativityAr" : "كنيسة كاتدرائية ميلاد المسيح",
+   "products.elOronfilHousingAr" : "إسكان القرنفل",
+   "products.newAlaminCityAr" : "مدينة العلمين الجديدة"
 }

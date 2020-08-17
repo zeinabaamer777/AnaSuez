@@ -94,7 +94,7 @@ ul li a {
         background: rgb(0,130,56);
         /* margin: 30px 0; */
         border-radius: 0 0 5px 5px;
-        padding: 0 8px;
+        padding: 0 14px;
         display: block;
         margin-top: -26px;
         transition: all .5s ease-in-out;
@@ -108,7 +108,7 @@ ul li a {
         margin-top: 115px;
         border-radius: 0 0 5px 5px;
         height: 100px;
-        padding: 7px 0;
+        padding: 12px 3px;
         transition: all .5s ease-in-out;
         -moz-transition: all .5s ease-in-out;
         -webkit-transition: all .5s ease-in-out;
