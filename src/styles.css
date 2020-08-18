@@ -1,6 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ngx-tabset/ngx-tabset";
+@font-face{
+    font-family: FRB;
+    src: url(./assets/fonts/Frutiger.otf);
+}
+@font-face{
+    font-family: tansik;
+    src: url(./assets/fonts/tanseek-modern-pro-arabic-bold.ttf);
+}
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+*:not(:dir(rtl)){
+    font-family: 'FRB', sans-serif !important ;
+}
+body, *[dir="rtl"]:not(.section-footer){
+    font-family: 'tansik', sans-serif !important;
+    font-size: 18px;
+}
+/* .section-footer{
+    font-family: 'FRB', sans-serif !important ;
+} */
+.fa,.fas,.far {
+    font-family: FontAwesome !important;
+}
+.far,.fas{font-family:Font Awesome\ 5 Free !important}
 
 /* table td.positive {
     background-color: #80ff00 !important;

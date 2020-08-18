@@ -43,3 +43,6 @@
     display: block;
     color: #fff;
 }
+.footer-top .title{
+    direction: ltr !important;
+}

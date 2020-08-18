@@ -2,13 +2,20 @@
 @import "~ngx-tabset/ngx-tabset";
 
 @font-face{
-    font-family: 'FRB';
-    src: url('./assets/fonts/Frutiger LT Std 55 Roman Regular.otf');
+    font-family: FRB;
+    src: url(../fonts/Frutiger.otf);
+}
+@font-face{
+    font-family: tansik;
+    src: url(../fonts/tanseek-modern-pro-arabic-bold.ttf);
 }
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
-*{
+*:not(.rtl){
     font-family: 'FRB', sans-serif !important ;
+}
+.rtl{
+    font-family: 'tansik', sans-serif !important;
 }
 .fa,.fas,.far {
     font-family: FontAwesome !important;
@@ -40,7 +47,7 @@
   .background-html {
     position: relative; 
     display: block;
-    background-image: url(./assets/images/big-bg.png);
+    background-image: url(./assets/images/big-html-back_cropped.png);
     background-size: cover;
     background-position: 50% 0;
   }
