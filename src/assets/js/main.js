@@ -31,10 +31,10 @@
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
       $('#header').addClass('header-scrolled');
-      $('#navbar-content').addClass('navbar-content-scrolled');
+      // $('#navbar-content').addClass('navbar-content-scrolled');
     } else {
       $('#header').removeClass('header-scrolled');
-      $('#navbar-content').removeClass('navbar-content-scrolled');
+      // $('#navbar-content').removeClass('navbar-content-scrolled');
     }
   });
 })(jQuery);
