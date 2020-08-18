@@ -91,15 +91,23 @@ export class AppComponent implements OnInit{
    this.document.getElementById('rtlstyle').setAttribute('href',
     'assets/css/'+styleName+'/bootstrap.css');
     // 'Portal/assets/css/'+styleName+'/bootstrap.css');
-   
-    if(styleName=='ar-EG')
+    var body = document.body;
+
+    // Tedious toggle
+
+
+    if(styleName =='ar-EG')
     {
       this.document.dir='rtl';
+      body.classList.toggle('rtlClass');
+
+      
     }
     else
     {
       this.document.dir='';
     }
+
     // const head = this.document.getElementsByTagName('head')[0];
 
     // let themeLink = this.document.getElementById(

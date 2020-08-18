@@ -1,8 +1,7 @@
 <div class="slider-elements">
     <ngx-slick-carousel class="carousel" 
         #slickModal="slick-carousel" 
-        [config]="slideConfig" 
-        [class]="isDetails ? 'white-style' : '' ">
+        [config]="slideConfig">
             <div ngxSlickItem *ngFor="let slideritem of sliderItems" class="slide">
                 <div class="card shadow-sm mb-3">
                     <img class="card-img-top"  [src]="slideritem.src" [alt]="slideritem.alt" >

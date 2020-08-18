@@ -10,16 +10,26 @@
 }
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
-*:not(:dir(rtl)){
-    font-family: 'FRB', sans-serif !important ;
+/*body{
+    font-family: none !important;
+}*/
+/* *
+{
+    font-family: 'FRB', sans-serif ;
+} */
+body {
+    font-family: 'FRB', sans-serif ;
 }
-body, *[dir="rtl"]:not(.section-footer){
+body.rtlClass{
     font-family: 'tansik', sans-serif !important;
     font-size: 18px;
 }
-/* .section-footer{
-    font-family: 'FRB', sans-serif !important ;
+
+/* *[dir="rtl"]:not(.section-footer){
+    font-family: 'tansik', sans-serif !important;
+    font-size: 18px;
 } */
+
 .fa,.fas,.far {
     font-family: FontAwesome !important;
 }
